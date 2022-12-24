@@ -63,96 +63,45 @@
                 <ul class="row menu justify-content-between">
                     <li class="col-auto rL list_1">
                         <a class="item_1" href="/catalog">Каталог продукции</a>
-                        <ul class="menu_list hide abs">
-                            <li>
-                                <a href="#">
-                                    Девелоперы
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    Ритейлеры
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    Строительные подрядчики и субподрядчики
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    Прорабы выполняющие работы
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    ЖКХ
-                                </a>
-                            </li>
-                            <li class="active">
-                                <a href="#">
-                                    Школы и Доу
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    Заказчики дворцов, вокзалов, спортивных комплексов
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    Другие решения для МОП
-                                </a>
-                            </li>
-                        </ul>
+                        @if(isset($catalogs['catalog']['children']))
+                            <ul class="menu_list hide abs">
+                                @foreach($catalogs['catalog']['children'] as $catalog)
+                                    <li>
+                                        <a href="/catalog/{{ $catalog['slug'] }}">
+                                            {{ $catalog['title'] }}
+                                        </a>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        @endif
                     </li>
                     <li class="col-auto rL list_1">
                         <a class="item_1" href="/solutions">Решения</a>
-                        <ul class="menu_list hide abs">
-                            <li>
-                                <a href="#">
-                                    Девелоперы
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    Ритейлеры
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    Строительные подрядчики и субподрядчики
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    Прорабы выполняющие работы
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    ЖКХ
-                                </a>
-                            </li>
-                            <li class="active">
-                                <a href="#">
-                                    Школы и Доу
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    Заказчики дворцов, вокзалов, спортивных комплексов
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    Другие решения для МОП
-                                </a>
-                            </li>
-                        </ul>
+                        @if(isset($catalogs['solutions']['children']))
+                            <ul class="menu_list hide abs">
+                                @foreach($catalogs['solutions']['children'] as $catalog)
+                                    <li>
+                                        <a href="/catalog/{{ $catalog['slug'] }}">
+                                            {{ $catalog['title'] }}
+                                        </a>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        @endif
                     </li>
-                    <li class="col-auto">
-                        <a href="/textures">Текстуры</a>
+                    <li class="col-auto rL list_1">
+                        <a class="item_1" href="/textures">Текстуры</a>
+                        @if(isset($catalogs['textures']['children']))
+                            <ul class="menu_list hide abs">
+                                @foreach($catalogs['textures']['children'] as $catalog)
+                                    <li>
+                                        <a href="/catalog/{{ $catalog['slug'] }}">
+                                            {{ $catalog['title'] }}
+                                        </a>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        @endif
                     </li>
                     <li class="col-auto">
                         <a href="#">Дилерам и дизайнерам</a>
