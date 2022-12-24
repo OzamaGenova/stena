@@ -11,6 +11,29 @@
 |
 */
 
+use Illuminate\Support\Facades\Route;
+
 Route::get('/', function () {
-    return view('welcome');
+    return view('pages.home');
+});
+
+Route::get('/catalog', function () {
+    return view('pages.catalog');
+});
+
+Route::get('/solutions', function () {
+    return view('pages.catalog');
+});
+
+Route::get('/textures', function () {
+    return view('pages.catalog');
+});
+
+
+Route::get('/about', function () {
+    return view('pages.about');
+});
+
+Route::get('/contacts', function () {
+    return view('pages.contacts');
 });
