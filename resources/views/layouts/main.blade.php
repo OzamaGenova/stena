@@ -9,11 +9,11 @@
     <meta name="format-detection" content="telephone=no">
     <title>Title here</title>
     <link rel="stylesheet" type="text/css" href="fonts/font.css">
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="css/global.css">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="stylesheet" type="text/css" href="css/adaptive.css">
-    <script src="js/html5.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/global.css">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/css/adaptive.css">
+    <script src="/js/html5.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 
@@ -181,12 +181,12 @@
                 <ul>
                     <li>
                         <a href="#">
-                            <img src="img/footer/3.png" alt="">
+                            <img src="/img/footer/3.png" alt="">
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img src="img/footer/4.png" alt="">
+                            <img src="/img/footer/4.png" alt="">
                         </a>
                     </li>
                 </ul>
@@ -275,16 +275,16 @@
 </div>
 
 
-<script src="js/jquery.gradienttext.js"></script>
-<script src="js/jquery.arcticmodal.js"></script>
-<script src="js/jquery.nice-select.js"></script>
-<script src="js/owl.carousel.js"></script>
-<script src="js/mask.js"></script>
-<script src="js/validate.js"></script>
-<script src="js/jquery.fancybox.min.js"></script>
-<script src="js/script.js"></script>
+<script src="/js/jquery.gradienttext.js"></script>
+<script src="/js/jquery.arcticmodal.js"></script>
+<script src="/js/jquery.nice-select.js"></script>
+<script src="/js/owl.carousel.js"></script>
+<script src="/js/mask.js"></script>
+<script src="/js/validate.js"></script>
+<script src="/js/jquery.fancybox.min.js"></script>
+<script src="/js/script.js"></script>
 
-<link rel="stylesheet" type="text/css" href="css/jquery.fancybox.min.css">
+<link rel="stylesheet" type="text/css" href="/css/jquery.fancybox.min.css">
 </body>
 
 </html>

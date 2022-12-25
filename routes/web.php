@@ -11,6 +11,7 @@
 |
 */
 
+use App\Models\Product;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -37,3 +38,8 @@ Route::get('/about', function () {
 Route::get('/contacts', function () {
     return view('pages.contacts');
 });
+
+Route::get('/card/{id}', function ($id) {
+    return view('pages.card', ['record' => Product::query()->find($id)]);
+});
+

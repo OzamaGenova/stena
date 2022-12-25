@@ -13,4 +13,5 @@ Route::group([
     $router->get('/', 'HomeController@index')->name('admin.home');
     $router->resource('editor/pages', PageController::class);
     $router->resource('editor/catalogs', CatalogController::class);
+    $router->resource('editor/products', ProductController::class);
 });
