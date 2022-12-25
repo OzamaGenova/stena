@@ -73,6 +73,7 @@ class ProductController extends AdminController
         $form->text('code', __('Артикул'));
         $form->text('brand', __('Бренд'));
         $form->text('series', __('Серия'));
+        $form->textarea('short_description', __('Краткое описание'));
         $form->textarea('description', __('Описание'));
         $form->textarea('specifications', __('Хар-ки'));
 

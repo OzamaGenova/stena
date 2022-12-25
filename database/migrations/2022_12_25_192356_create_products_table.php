@@ -23,6 +23,7 @@ class CreateProductsTable extends Migration
             $table->string('code')->nullable();
             $table->string('brand')->nullable();
             $table->string('series')->nullable();
+            $table->text('short_description')->nullable();
             $table->text('description')->nullable();
             $table->text('specifications')->nullable();
 
