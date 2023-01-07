@@ -68,13 +68,13 @@ class ProductController extends AdminController
     {
         $form = new Form(new Product);
 
-        $form->text('title', __('Название'));
-        $form->select('catalog_id', trans('Категория'))->options(Catalog::selectOptions());
+        $form->text('title', __('Название'))->required();
+        $form->select('catalog_id', trans('Категория'))->options(Catalog::selectOptions())->required();
         $form->text('code', __('Артикул'));
         $form->text('brand', __('Бренд'));
         $form->text('series', __('Серия'));
         $form->textarea('short_description', __('Краткое описание'));
-        $form->textarea('description', __('Описание'));
+        $form->ckeditor('description', __('Описание'));
         $form->textarea('specifications', __('Хар-ки'));
 
         return $form;

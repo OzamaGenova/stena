@@ -134,7 +134,7 @@
                 <div class="tabs_items">
                   <div class="item active">
                     <p style="white-space: pre-line;">
-                      {{ $record['description'] }}
+                      {!! $record['description'] !!}
                     </p>
                   </div>
                   <!--end item-->
