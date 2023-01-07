@@ -113,12 +113,12 @@
                         <a class="item_1" href="#">О компании</a>
                         <ul class="menu_list menu_list_2 hide abs">
                             <li>
-                                <a href="/contacts">
+                                <a href="/pages/contacts">
                                     Контакты
                                 </a>
                             </li>
                             <li>
-                                <a href="/about">
+                                <a href="/pages/about">
                                     О нас
                                 </a>
                             </li>

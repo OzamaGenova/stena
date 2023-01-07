@@ -11,6 +11,7 @@
 |
 */
 
+use App\Models\Page;
 use App\Models\Product;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\View;
@@ -69,17 +70,12 @@ Route::get('/textures', function () {
     ]);
 });
 
-
-Route::get('/about', function () {
-    return view('pages.about');
-});
-
-Route::get('/contacts', function () {
-    return view('pages.contacts');
-});
-
 Route::get('/products/{id}', function ($id) {
     $record = Product::query()->find($id);
     return view('pages.card', ['record' => $record]);
 })->name('products');
 
+Route::get('pages/{slug}', function ($slug) {
+    $record = Page::query()->where('slug', '=', $slug)->firstOrFail();
+    return view('default', ['content' => $record['content']]);
+});
