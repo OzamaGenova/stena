@@ -6,8 +6,8 @@
             <div class="container">
                 <nav class="row">
                     <ul class="col-lg-4">
-                        <li><a href="#">Главная</a></li>
-                        <li><a href="#">О компании</a></li>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/pages/about">О компании</a></li>
                         <li><span>Контакты</span></li>
                     </ul>
                 </nav>
@@ -21,25 +21,25 @@
                         <div class="aside">
                             <div class="block">
                                 <a href="#">
-                                    <img src="img/aside/1.png" alt="">
+                                    <img src="/img/aside/1.png" alt="">
                                     <span>Краски, грунты</span>
                                 </a>
                             </div>
                             <div class="block">
                                 <a href="#">
-                                    <img src="img/aside/2.png" alt="">
+                                    <img src="/img/aside/2.png" alt="">
                                     <span>Декоративные<i class="db"></i> кокрытия</span>
                                 </a>
                             </div>
                             <div class="block">
                                 <a href="#">
-                                    <img src="img/aside/3.png" alt="">
+                                    <img src="/img/aside/3.png" alt="">
                                     <span>Здоровье стер.<i class="db"></i> материалов</span>
                                 </a>
                             </div>
                             <div class="block">
                                 <a href="#">
-                                    <img src="img/aside/4.png" alt="">
+                                    <img src="/img/aside/4.png" alt="">
                                     <span>Специальные<i class="db"></i> материалы</span>
                                 </a>
                             </div>
@@ -48,7 +48,7 @@
                     <span>
                       Каталог продукции<i class="db"></i> ГК “Стена”
                     </span>
-                                    <img src="img/aside/5.png" alt="">
+                                    <img src="/img/aside/5.png" alt="">
                                 </a>
                             </div>
                             <div class="block_3">
