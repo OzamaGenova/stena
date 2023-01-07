@@ -60,8 +60,8 @@ class PageController extends AdminController
     {
         $form = new Form(new Page);
 
-        $form->text('title', __('Название'))->required();
-        $form->text('slug', __('Ссылка'))->required();
+        $form->text('title', __('Название'))->rules('required');
+        $form->text('slug', __('Ссылка'))->rules('required');
         $form->ckeditor('content', __('Контент'));
 
         return $form;
