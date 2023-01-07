@@ -21,7 +21,7 @@
                             @foreach($sidebar as $catalog)
                                 <div class="block">
                                     <a href="/catalog/{{ $catalog['slug'] }}">
-                                        <img src="img/aside/1.png" alt="">
+                                        <img src="{{ Storage::disk(config('admin.upload.disk'))->url($catalog['img']) }}" alt="">
                                         <span>{{ $catalog['title'] }}</span>
                                     </a>
                                 </div>
