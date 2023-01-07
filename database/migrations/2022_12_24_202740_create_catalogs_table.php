@@ -19,6 +19,7 @@ class CreateCatalogsTable extends Migration
             $table->integer('order')->default(0);
             $table->string('title', 50);
             $table->string('slug', 50);
+            $table->string('img')->nullable();
 
             $table->timestamps();
         });

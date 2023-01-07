@@ -28,23 +28,29 @@ class CatalogController extends AdminController
     public function index(Content $content)
     {
         return $content->row(function (Row $row) {
-                $row->column(6, $this->treeView()->render());
+            $row->column(6, $this->treeView()->render());
 
-                $row->column(6, function (Column $column) {
-                    $form = new \Encore\Admin\Widgets\Form();
-                    $form->action(admin_base_path('editor/catalogs'));
+            $row->column(6, function (Column $column) {
+                $form = new \Encore\Admin\Widgets\Form();
+                $form->action(admin_base_path('editor/catalogs'));
 
+                $form->select('parent_id', trans('Родитель'))->options(Catalog::selectOptions());
+                $form->text('title', trans('Название'))->rules('required');
+                $form->text('slug', trans('Ссылка'))->rules('required');
+                $form->image('img', 'Изображение')
+                    ->options([])
+                    ->move('catalogs')
+                    ->removable()
+                    ->uniqueName()
+                    ->rules(function () {
+                        return 'mimes:jpeg,png';
+                    });
 
-                    $form->select('parent_id', trans('admin.parent_id'))->options(Catalog::selectOptions());
-                    $form->text('title', trans('admin.title'))->rules('required');
-                    $form->text('slug', trans('admin.slug'))->rules('required');
+                $form->hidden('_token')->default(csrf_token());
 
-
-                    $form->hidden('_token')->default(csrf_token());
-
-                    $column->append((new Box(trans('admin.new'), $form))->style('success'));
-                });
+                $column->append((new Box(trans('admin.new'), $form))->style('success'));
             });
+        });
     }
 
     /**
@@ -72,12 +78,17 @@ class CatalogController extends AdminController
 
         $form->display('id', 'ID');
 
-        $form->select('parent_id', trans('admin.parent_id'))->options(Catalog::selectOptions());
-        $form->text('title', trans('admin.title'))->rules('required');
-        $form->text('slug', trans('admin.slug'))->rules('required');
-
-        $form->display('created_at', trans('admin.created_at'));
-        $form->display('updated_at', trans('admin.updated_at'));
+        $form->select('parent_id', trans('Родитель'))->options(Catalog::selectOptions());
+        $form->text('title', trans('Название'))->rules('required');
+        $form->text('slug', trans('Ссылка'))->rules('required');
+        $form->image('img', 'Изображение')
+            ->options([])
+            ->move('catalogs')
+            ->removable()
+            ->uniqueName()
+            ->rules(function () {
+                return 'mimes:jpeg,png';
+            });
 
         return $form;
     }
