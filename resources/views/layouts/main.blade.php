@@ -62,13 +62,13 @@
             <div class="container">
                 <ul class="row menu justify-content-between">
                     <li class="col-auto rL list_1">
-                        <a class="item_1" href="/catalog">Каталог продукции</a>
-                        @if(isset($catalogs['catalog']['children']))
+                        <a class="item_1" href="{{ route('categories.show', 'catalog') }}">Каталог продукции</a>
+                        @if(isset($categories['catalog']['children']))
                             <ul class="menu_list hide abs">
-                                @foreach($catalogs['catalog']['children'] as $catalog)
+                                @foreach($categories['catalog']['children'] as $category)
                                     <li>
-                                        <a href="/catalog/{{ $catalog['slug'] }}">
-                                            {{ $catalog['title'] }}
+                                        <a href="{{ route('categories.show', $category['slug']) }}">
+                                            {{ $category['title'] }}
                                         </a>
                                     </li>
                                 @endforeach
@@ -76,13 +76,13 @@
                         @endif
                     </li>
                     <li class="col-auto rL list_1">
-                        <a class="item_1" href="/solutions">Решения</a>
-                        @if(isset($catalogs['solutions']['children']))
+                        <a class="item_1" href="{{ route('categories.show', 'solutions') }}">Решения</a>
+                        @if(isset($categories['solutions']['children']))
                             <ul class="menu_list hide abs">
-                                @foreach($catalogs['solutions']['children'] as $catalog)
+                                @foreach($categories['solutions']['children'] as $category)
                                     <li>
-                                        <a href="/catalog/{{ $catalog['slug'] }}">
-                                            {{ $catalog['title'] }}
+                                        <a href="{{ route('categories.show', $category['slug']) }}">
+                                            {{ $category['title'] }}
                                         </a>
                                     </li>
                                 @endforeach
@@ -90,13 +90,13 @@
                         @endif
                     </li>
                     <li class="col-auto rL list_1">
-                        <a class="item_1" href="/textures">Текстуры</a>
-                        @if(isset($catalogs['textures']['children']))
+                        <a class="item_1" href="{{ route('categories.show', 'textures') }}">Текстуры</a>
+                        @if(isset($categories['textures']['children']))
                             <ul class="menu_list hide abs">
-                                @foreach($catalogs['textures']['children'] as $catalog)
+                                @foreach($categories['textures']['children'] as $category)
                                     <li>
-                                        <a href="/catalog/{{ $catalog['slug'] }}">
-                                            {{ $catalog['title'] }}
+                                        <a href="{{ route('categories.show', $category['slug']) }}">
+                                            {{ $category['title'] }}
                                         </a>
                                     </li>
                                 @endforeach

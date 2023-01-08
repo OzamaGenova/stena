@@ -25,12 +25,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $records = Catalog::tree()->getItems();
-        $catalogs = [];
-        foreach ($records as $record) {
-            $key = $record['slug'];
-            $catalogs[$key] = $record;
-        }
-        View::share('catalogs', $catalogs);
+        $records = Catalog::with(['parent', 'children'])->get();
+        $records = $records->keyBy('slug')->toArray();
+        View::share('categories', $records);
     }
 }

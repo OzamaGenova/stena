@@ -6,8 +6,11 @@
             <div class="container">
                 <nav class="row">
                     <ul class="col-lg-auto">
-                        <li><a href="#">Главная</a></li>
-                        <li><span>Каталог</span></li>
+                        <li><a href="/">Главная</a></li>
+                        @if($category['parent'] !== null)
+                            <li><a href="{{ route('categories.show', $category['parent']['slug'] ?? '') }}"><span>{{ $category['parent']['title'] ?? '' }}</span></a></li>
+                        @endif
+                        <li><span>{{ $category['title'] ?? '' }}</span></li>
                     </ul>
                 </nav>
             </div>
@@ -18,19 +21,17 @@
                 <div class="row">
                     <div class="col-md-3 col-lg-3 list_1">
                         <div class="aside">
-                            @foreach($sidebar as $catalog)
+                            @foreach(($category['children'] ?? []) as $child)
                                 <div class="block">
-                                    <a href="/catalog/{{ $catalog['slug'] }}">
-                                        <img src="{{ Storage::disk(config('admin.upload.disk'))->url($catalog['img']) }}" alt="">
-                                        <span>{{ $catalog['title'] }}</span>
+                                    <a href="{{ route('categories.show', $child['slug'] ?? '') }}">
+                                        <img src="{{ Storage::disk(config('admin.upload.disk'))->url($child['img']) }}" alt="">
+                                        <span>{{ $child['title'] }}</span>
                                     </a>
                                 </div>
                             @endforeach
                             <div class="block_2">
-                                <a href="{{ route('catalog') }}">
-                    <span>
-                      Каталог продукции<i class="db"></i> ГК “Стена”
-                    </span>
+                                <a href="{{ route('categories.show', $category['slug'] ?? '') }}">
+                                    <span>{{ $category['title'] ?? '' }}<i class="db"></i> ГК “Стена”</span>
                                     <img src="img/aside/5.png" alt="">
                                 </a>
                             </div>
@@ -40,7 +41,7 @@
                         </div>
                     </div>
                     <div class="col-md-9 col-lg-9 list_2">
-                        <h1> {{ $title }} <span>ГК “Стена”</span></h1>
+                        <h1>{{ $category['title'] ?? '' }} <span>ГК “Стена”</span></h1>
                         <div class="item_1">
                             <span>По линиям продукции:</span>
                             <div class="sel">
@@ -60,26 +61,26 @@
                             <div class="row_2">
                                 @foreach($records as $record)
                                     <div class="col-sm-12 col-md-6 col-lg-3 items">
-                                    <div class="hover">
-                                        <a href="{{ route('products', $record['id']) }}">
+                                        <div class="hover">
+                                            <a href="{{ route('products.show', $record['id']) }}">
                                             <span class="image_block">
                                               <i href="#" style="background-image: url(/images/catalogue/3.jpg)"></i>
                                             </span>
-                                            <span class="text">{{ $record['short_description'] }}</span>
-                                            <span class="link">{{ $record['title'] }}</span>
-                                            <span>{{ $record['catalog']['title'] }}</span>
-                                        </a>
-                                    </div>
-                                    <div>
-                                        <a>
+                                                <span class="text">{{ $record['short_description'] }}</span>
+                                                <span class="link">{{ $record['title'] }}</span>
+                                                <span>{{ $record['catalog']['title'] }}</span>
+                                            </a>
+                                        </div>
+                                        <div>
+                                            <a>
                                             <span class="image_block">
                                               <i href="#" style="background-image: url(images/catalogue/1.jpg)"></i>
                                             </span>
-                                            <a class="link">{{ $record['title'] }}</a>
-                                            <span>{{ $record['catalog']['title'] }}</span>
-                                        </a>
+                                                <a class="link">{{ $record['title'] }}</a>
+                                                <span>{{ $record['catalog']['title'] }}</span>
+                                            </a>
+                                        </div>
                                     </div>
-                                </div>
                                 @endforeach
                             </div>
                         </div>
