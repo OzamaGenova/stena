@@ -15,8 +15,26 @@ class Product extends Model
         }, $arr);
     }
 
-    public function catalog(): BelongsTo
+    public function category(): BelongsTo
     {
-        return $this->belongsTo(Catalog::class);
+        return $this->belongsTo(Catalog::class, 'catalog_id');
+    }
+
+    public function setImgAttribute($images)
+    {
+        if (is_array($images)) {
+            $this->attributes['img'] = json_encode($images);
+        }
+    }
+
+    public function getImgAttribute($images)
+    {
+        return json_decode($images, true);
+    }
+
+    public function getFimgAttribute($images)
+    {
+        $img  = $this->img;
+        return !empty($img) && count($img) > 0 ? $img[0] : '';
     }
 }

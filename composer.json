@@ -14,7 +14,8 @@
         "laravel/framework": "5.8.*",
         "laravel/tinker": "^1.0",
         "symfony/css-selector": "v5.4.2",
-        "psr/container": "v1.1.1"
+        "psr/container": "v1.1.1",
+        "ext-json": "*"
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",

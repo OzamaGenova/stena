@@ -43,7 +43,7 @@ class CatalogController extends AdminController
                     ->removable()
                     ->uniqueName()
                     ->rules(function () {
-                        return 'mimes:jpeg,png';
+                        return 'mimes:jpg,png';
                     });
 
                 $form->hidden('_token')->default(csrf_token());
@@ -87,7 +87,7 @@ class CatalogController extends AdminController
             ->removable()
             ->uniqueName()
             ->rules(function () {
-                return 'mimes:jpeg,png';
+                return 'mimes:jpg,png';
             });
 
         return $form;

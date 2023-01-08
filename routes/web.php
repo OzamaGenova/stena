@@ -42,6 +42,9 @@ Route::get('/categories/{slug}', function ($slug) {
 })->name('categories.show');
 
 Route::get('/products/{id}', function ($id) {
-    $record = Product::query()->find($id);
-    return view('pages.card', ['record' => $record]);
+    $record = Product::query()->with('category')->find($id);
+    return view('pages.card', [
+        'category' => $record->category,
+        'record' => $record
+    ]);
 })->name('products.show');

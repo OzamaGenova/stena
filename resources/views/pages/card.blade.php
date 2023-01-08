@@ -5,10 +5,13 @@
       <div id="breadcrumbs" class="cont">
         <div class="container">
           <nav class="row">
-            <ul class="col-lg-4">
-              <li><a href="#">Главная</a></li>
-              <li><a href="#">Каталог</a></li>
-              <li><span>Краска Expert Pro</span></li>
+            <ul class="col-lg-auto">
+              <li><a href="/">Главная</a></li>
+              @if($category['parent'] !== null)
+                <li><a href="{{ route('categories.show', $category['parent']['slug'] ?? '') }}"><span>{{ $category['parent']['title'] ?? '' }}</span></a></li>
+              @endif
+              <li><a href="{{ route('categories.show', $category['slug'] ?? '') }}"><span>{{ $category['title'] ?? '' }}</span></a></li>
+              <li><span>{{ $record['title'] ?? '' }}</span></li>
             </ul>
           </nav>
         </div>
@@ -19,40 +22,11 @@
           <div class="row">
             <div class="col-md-3 col-lg-3 list_1">
               <div class="aside">
-                <div class="block">
-                  <a href="#">
-                    <img src="/img/aside/1.png" alt="">
-                    <span>Краски, грунты</span>
-                  </a>
-                </div>
-                <div class="block">
-                  <a href="#">
-                    <img src="/img/aside/2.png" alt="">
-                    <span>Декоративные<i class="db"></i> кокрытия</span>
-                  </a>
-                </div>
-                <div class="block">
-                  <a href="#">
-                    <img src="/img/aside/3.png" alt="">
-                    <span>Здоровье стер.<i class="db"></i> материалов</span>
-                  </a>
-                </div>
-                <div class="block">
-                  <a href="#">
-                    <img src="/img/aside/4.png" alt="">
-                    <span>Специальные<i class="db"></i> материалы</span>
-                  </a>
-                </div>
                 <div class="block_2">
-                  <a href="#">
-                    <span>
-                      Каталог продукции<i class="db"></i> ГК “Стена”
-                    </span>
+                  <a href="{{ route('categories.show', 'catalog') }}">
+                    <span>Каталог продукции<i class="db"></i> ГК “Стена”</span>
                     <img src="/img/aside/5.png" alt="">
                   </a>
-                </div>
-                <div class="block_3">
-
                 </div>
               </div>
             </div>
@@ -64,34 +38,22 @@
               <div class="cards_block">
                 <div class="tabs_block">
                   <div class="tabs_items">
-                    <div class="item active">
-                      <div class="image_block">
-                        <a href="#" style="background-image: url(images/cards/1.jpg)"></a>
+                    @foreach($record['img'] as $key => $img)
+                      <div class="item @if($key == 0) active @endif">
+                        <div class="image_block">
+                          <a style="background-image: url({{ Storage::disk(config('admin.upload.disk'))->url($img) }})"></a>
+                        </div>
                       </div>
-                    </div>
-                    <div class="item">
-                      <div class="image_block">
-                        <a href="#" style="background-image: url(images/cards/2.jpg)"></a>
-                      </div>
-                    </div>
-                    <div class="item">
-                      <div class="image_block video">
-                        <iframe src="https://www.youtube.com/embed/TnFM2_hT4ZY"></iframe>
-                      </div>
-                    </div>
+                    @endforeach
                   </div>
                   <!--end tabs_items-->
                   <div class="tabs_links">
                     <ul>
-                      <li class="rL active">
-                        <span style="background-image: url(images/cards/1.jpg)"></span>
+                      @foreach($record['img'] as $key => $img)
+                      <li class="rL @if($key == 0) active @endif">
+                        <span style="background-image: url({{ Storage::disk(config('admin.upload.disk'))->url($img) }})"></span>
                       </li>
-                      <li class="rL">
-                        <span style="background-image: url(images/cards/2.jpg)"></span>
-                      </li>
-                      <li class="rL link">
-                        <span style="background-image: url(images/cards/3.jpg)"></span>
-                      </li>
+                      @endforeach
                     </ul>
                   </div>
                   <!--end tabs_links-->

@@ -30,13 +30,10 @@
                                 </div>
                             @endforeach
                             <div class="block_2">
-                                <a href="{{ route('categories.show', $category['slug'] ?? '') }}">
-                                    <span>{{ $category['title'] ?? '' }}<i class="db"></i> ГК “Стена”</span>
-                                    <img src="img/aside/5.png" alt="">
+                                <a href="{{ route('categories.show', 'catalog') }}">
+                                    <span>Каталог продукции<i class="db"></i> ГК “Стена”</span>
+                                    <img src="/img/aside/5.png" alt="">
                                 </a>
-                            </div>
-                            <div class="block_3">
-
                             </div>
                         </div>
                     </div>
@@ -64,7 +61,7 @@
                                         <div class="hover">
                                             <a href="{{ route('products.show', $record['id']) }}">
                                             <span class="image_block">
-                                              <i href="#" style="background-image: url(/images/catalogue/3.jpg)"></i>
+                                              <i href="#" style="background-image: url({{ Storage::disk(config('admin.upload.disk'))->url($record['fimg']) }})"></i>
                                             </span>
                                                 <span class="text">{{ $record['short_description'] }}</span>
                                                 <span class="link">{{ $record['title'] }}</span>
@@ -74,7 +71,7 @@
                                         <div>
                                             <a>
                                             <span class="image_block">
-                                              <i href="#" style="background-image: url(images/catalogue/1.jpg)"></i>
+                                              <i href="#" style="background-image: url({{ Storage::disk(config('admin.upload.disk'))->url($record['fimg']) }})"></i>
                                             </span>
                                                 <a class="link">{{ $record['title'] }}</a>
                                                 <span>{{ $record['catalog']['title'] }}</span>

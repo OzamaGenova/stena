@@ -20,6 +20,7 @@ class CreateProductsTable extends Migration
             $table->foreign('catalog_id')
                 ->on('catalogs')
                 ->references('id');
+            $table->jsonb('img')->nullable();
             $table->string('code')->nullable();
             $table->string('brand')->nullable();
             $table->string('series')->nullable();

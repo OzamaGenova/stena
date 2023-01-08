@@ -70,6 +70,14 @@ class ProductController extends AdminController
 
         $form->text('title', __('Название'))->rules('required');
         $form->select('catalog_id', trans('Категория'))->options(Catalog::selectOptions())->rules('required');
+        $form->multipleImage('img', 'Изображения')
+            ->options([])
+            ->move('products')
+            ->removable()
+            ->uniqueName()
+            ->rules(function () {
+                return 'mimes:jpg,png';
+            });
         $form->text('code', __('Артикул'));
         $form->text('brand', __('Бренд'));
         $form->text('series', __('Серия'));
