@@ -53,8 +53,6 @@ class ProductController extends AdminController
         $show->field('series', __('Series'));
         $show->field('description', __('Description'));
         $show->field('specifications', __('Specifications'));
-        $show->field('created_at', __('Created at'));
-        $show->field('updated_at', __('Updated at'));
 
         return $show;
     }

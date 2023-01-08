@@ -7,7 +7,8 @@
     <meta name="HandheldFriendly" content="true">
     <meta name="MobileOptimized" content="320">
     <meta name="format-detection" content="telephone=no">
-    <title>Title here</title>
+    <title>{{ $seo['title'] ?? 'ГК “Стена”' }}</title>
+    <meta name="description" content="{{ $seo['title'] ?? 'ГК “Стена”' }}">
     <link rel="stylesheet" type="text/css" href="fonts/font.css">
     <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="/css/global.css">

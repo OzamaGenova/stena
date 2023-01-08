@@ -14,4 +14,5 @@ Route::group([
     $router->resource('editor/pages', PageController::class);
     $router->resource('editor/catalogs', CatalogController::class);
     $router->resource('editor/products', ProductController::class);
+    $router->resource('editor/seo', SeoController::class);
 });
