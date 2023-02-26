@@ -20,117 +20,12 @@
 
 <body>
 <div id="wrapper">
-    <header id="header" class="cont">
-        <div class="header_top">
-            <div class="container">
-                <div class="burger hide">
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                </div>
-                <div class="row justify-content-between">
-                    <div class="col-sm-6 col-md-6 col-lg-auto box">
-                        <a class="logo" href="/"></a>
-                    </div>
-                    <div class="col-sm-6 col-md-6 col-lg-auto seek box">
-                        <form class="tb w100 h100" method="post">
-                            <div class="tbc w100 h100 vM">
-                                <input class="inputbox box ell rL w100 db" type="email" name="email" placeholder="">
-                            </div>
-                            <div class="tbc w100 h100 vM">
-                                <button type="submit" name="button">Найти</button>
-                            </div>
-                        </form>
-                        <p class="text">например: <span>штукатурка</span></p>
-                    </div>
-                    <div class="col-auto col-md-3 col-lg-auto box link">
-                        <a class="rL db" href="#">
-                            Скачать<i class="db"></i> каталог
-                        </a>
-                    </div>
-                    <div class="col-auto col-md-3 col-lg-auto box link">
-                        <a class="rL btn_1 db">Заказать<i class="db"></i> звонок</a>
-                    </div>
-                    <div class="col-auto link_1">
-                        <a href="tel:880000000000">8 (800) 0000-00-00</a>
-                        <p>пн-пт с 09:00 - 19:00</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--end header_top-->
-        <div class="header_bot">
-            <div class="container">
-                <ul class="row menu justify-content-between">
-                    <li class="col-auto rL list_1">
-                        <a class="item_1" href="{{ route('categories.show', 'catalog') }}">Каталог продукции</a>
-                        @if(isset($categories['catalog']['children']))
-                            <ul class="menu_list hide abs">
-                                @foreach($categories['catalog']['children'] as $category)
-                                    <li>
-                                        <a href="{{ route('categories.show', $category['slug']) }}">
-                                            {{ $category['title'] }}
-                                        </a>
-                                    </li>
-                                @endforeach
-                            </ul>
-                        @endif
-                    </li>
-                    <li class="col-auto rL list_1">
-                        <a class="item_1" href="{{ route('categories.show', 'solutions') }}">Решения</a>
-                        @if(isset($categories['solutions']['children']))
-                            <ul class="menu_list hide abs">
-                                @foreach($categories['solutions']['children'] as $category)
-                                    <li>
-                                        <a href="{{ route('categories.show', $category['slug']) }}">
-                                            {{ $category['title'] }}
-                                        </a>
-                                    </li>
-                                @endforeach
-                            </ul>
-                        @endif
-                    </li>
-                    <li class="col-auto rL list_1">
-                        <a class="item_1" href="{{ route('categories.show', 'textures') }}">Текстуры</a>
-                        @if(isset($categories['textures']['children']))
-                            <ul class="menu_list hide abs">
-                                @foreach($categories['textures']['children'] as $category)
-                                    <li>
-                                        <a href="{{ route('categories.show', $category['slug']) }}">
-                                            {{ $category['title'] }}
-                                        </a>
-                                    </li>
-                                @endforeach
-                            </ul>
-                        @endif
-                    </li>
-                    <li class="col-auto">
-                        <a href="#">Дилерам и дизайнерам</a>
-                    </li>
-                    <li class="col-auto">
-                        <a href="#">Производство под СТМ</a>
-                    </li>
-                    <li class="col-auto rL list_1">
-                        <a class="item_1" href="#">О компании</a>
-                        <ul class="menu_list menu_list_2 hide abs">
-                            <li>
-                                <a href="/pages/contacts">
-                                    Контакты
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/pages/about">
-                                    О нас
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <!--end header_bot-->
+    <header>
+        @component('components.header')
+        @endcomponent
     </header>
     <!--end header-->
+
 
     @yield('main')
 
@@ -138,14 +33,29 @@
 </div>
 <!--end wrapper-->
 
+<style>
+    #footer {
+        padding-top: 60px;
+        height: auto;
+    }
+
+    #footer h3 {
+        font-size: 1.4rem;
+        margin-bottom: 30px;
+    }
+
+    #footer li {
+        padding: 4px 0;
+    }
+</style>
 <footer id="footer">
     <div class="container">
-        <div class="row justify-content-between">
-            <div class="col-12 col-sm-12 col-md-3 col-lg-3 box list_1">
-                <a class="logo db" href="#"></a>
-                <p>Группа компаний «Стена» © 2013 Все права защищены</p>
+        <div class="row" style="display: grid; grid-template-columns: repeat(4, 1fr);">
+            <div class=" box list_1">
+                <a class="logo db" href="#" style="width: 140px;"></a>
+                <p>Группа компаний «Стена»<br>© 2013 Все права защищены</p>
             </div>
-            <div class="col-12 col-sm-4 col-md-3 col-lg-2 list_2">
+            <div class="list_2">
                 <h3>Каталог продукции</h3>
                 <ul>
                     <li>
@@ -163,7 +73,7 @@
                 </ul>
                 <a class="link_1" target="_blank" href="#">Скачать каталог</a>
             </div>
-            <div class="col-12 col-sm-4 col-md-3 col-lg-2 box list_3">
+            <div class="box list_3">
                 <h3>О компании</h3>
                 <ul>
                     <li>
@@ -177,7 +87,7 @@
                     </li>
                 </ul>
             </div>
-            <div class="col-12 col-sm-4 col-md-4 col-lg-auto list_4">
+            <div class=" list_4">
                 <h3>Мы в социальных сетях</h3>
                 <ul>
                     <li>
@@ -185,17 +95,7 @@
                             <img src="/img/footer/3.png" alt="">
                         </a>
                     </li>
-                    <li>
-                        <a href="#">
-                            <img src="/img/footer/4.png" alt="">
-                        </a>
-                    </li>
                 </ul>
-            </div>
-            <div class="col-12 col-sm-4 col-md-4 col-lg-2 list_5">
-                <a class="link_2" href="tel:880000000000">8 (800) 0000-00-00</a>
-                <span>пн-пт с 09:00 - 19:00</span>
-                <a class="link_3 btn_1 rL">Заказать звонок</a>
             </div>
         </div>
     </div>
