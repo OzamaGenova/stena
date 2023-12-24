@@ -25,26 +25,43 @@ Route::get('pages/{slug}', function ($slug) {
     return view('default', ['content' => $record['content']]);
 });
 
-Route::get('/categories/{slug}', function ($slug) {
-    $category = View::shared('categories')[$slug] ?? [];
+//Route::get('/categories/{slug}', function ($slug) {
+//    $category = View::shared('categories')[$slug] ?? [];
+//
+//    $categories = array_map(function ($item) {
+//        return $item['id'];
+//    }, $category['children'] ?? []);
+//    if (isset($category['id'])) array_push($categories, $category['id']);
+//
+//    $records = Product::query()->whereIn('catalog_id', $categories)->get();
+//
+//    return view('pages.catalog', [
+//        'category' => $category,
+//        'records' => $records
+//    ]);
+//})->name('categories.show');
+//
+//Route::get('/products/{id}', function ($id) {
+//    $record = Product::query()->with('category')->find($id);
+//    return view('pages.card', [
+//        'category' => $record->category,
+//        'record' => $record
+//    ]);
+//})->name('products.show');
 
-    $categories = array_map(function ($item) {
-        return $item['id'];
-    }, $category['children'] ?? []);
-    if (isset($category['id'])) array_push($categories, $category['id']);
 
-    $records = Product::query()->whereIn('catalog_id', $categories)->get();
+Route::get('/products', function () {
+    return view('pages.products');
+})->name('products.index');
 
-    return view('pages.catalog', [
-        'category' => $category,
-        'records' => $records
-    ]);
-})->name('categories.show');
+Route::get('/solutions', function () {
+    return view('pages.solutions');
+})->name('solutions.index');
 
-Route::get('/products/{id}', function ($id) {
-    $record = Product::query()->with('category')->find($id);
-    return view('pages.card', [
-        'category' => $record->category,
-        'record' => $record
-    ]);
-})->name('products.show');
+Route::get('/partners', function () {
+    return view('pages.partners');
+})->name('partners.index');
+
+Route::get('/projects', function () {
+    return view('pages.projects');
+})->name('projects.index');

@@ -1,0 +1,14 @@
+:root {
+    /* */
+    --color-text: #000;
+    --color-text-white: #fff;
+    --color-text-lightgrey: #bbbbbb;
+    --color-text-blue: #698bde;
+    /* */
+    --color-white: #fff;
+    --color-lightgrey: #cccccc;
+    --color-darkgrey: #27262f;
+    --color-orange: #ff2b00;
+    /* */
+    --color-button: #49abc4;
+}

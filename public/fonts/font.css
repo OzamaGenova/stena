@@ -1,23 +1,25 @@
 @font-face {
-  font-family: 'GothamPro-Bold';
-  src: url('GothamPro-Bold.eot');
-  src: url('GothamPro-Bold.eot?#iefix') format('embedded-opentype'),
-       url('GothamPro-Bold.svg#GothamPro-Bold') format('svg'),
-       url('GothamPro-Bold.ttf') format('truetype'),
-       url('GothamPro-Bold.woff') format('woff'),
-       url('GothamPro-Bold.woff2') format('woff2');
-  font-weight: normal;
-  font-style: normal;
+    font-family: 'MyriadPro';
+    src: url('MyriadPro-Regular.eot');
+    src: url('MyriadPro-Regular.ttf') format('truetype'),
+    url('MyriadPro-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 }
 
-@font-face {
-  font-family: 'GothamPro';
-  src: url('GothamPro.eot');
-  src: url('GothamPro.eot?#iefix') format('embedded-opentype'),
-       url('GothamPro.svg#GothamPro') format('svg'),
-       url('GothamPro.ttf') format('truetype'),
-       url('GothamPro.woff') format('woff'),
-       url('GothamPro.woff2') format('woff2');
-  font-weight: normal;
-  font-style: normal;
+body {
+    font-size: 16px;
+    font-family: 'MyriadPro', sans-serif;
+}
+
+.font-l {
+    font-size: 18px;
+}
+
+.font-xl {
+    font-size: 22px;
+}
+
+.font-xxl {
+    font-size: 26px;
 }

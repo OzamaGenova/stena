@@ -1,146 +1,73 @@
 <style>
-    .logo {
-        color: #fff;
-        font-size: 1.8rem;
-        padding: 12px 32px;
-        background-color: #909090;
-    }
-
-    .main-nav {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .toolbar {
-        height: 80px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .toolbar, .main-nav li {
-        background-color: #b4aea6;
-    }
-
-    .toolbar .search {
-        display: flex;
-        border: 2px solid #fff;
-        border-radius: 20px;
-        padding: 4px 20px;
-        margin: 0;
-        margin-right: 10px;
-    }
-
-    .toolbar .search input, .toolbar .search button {
-        color: #fff;
-        background-color: transparent;
-    }
-
-    .main-nav .toolbar > ul {
+    header {
         display: flex;
         justify-content: center;
-        align-items: center;
     }
 
-    .main-nav ul {
-        padding: 0;
+    .header__nav {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 16px;
     }
 
-    .main-nav li {
-        padding: 20px;
-        position: relative;
-    }
-    .main-nav a {
-        color: #fff;
+    .header__nav ul {
+        display: flex;
     }
 
-    /* отображение выпадающего меню */
-    .main-nav ul ul {
-        display: none;
-        position: absolute;
-        z-index: 100;
-        top: 48px;
-        left: 0;
+    .header__nav li {
+        display: block;
     }
 
-    .main-nav li:hover ul {
-        display: block !important;
+    .header__nav a {
+        display: block;
+        padding: 16px 24px;
+    }
+
+    .header__nav a:hover {
+        background-color: rgba(0, 0, 0, 0.19);
+    }
+
+    .header__search {
+        width: 360px;
+        height: 100%;
+    }
+
+    .header__search input {
+        width: 100%;
+        height: 100%;
+        padding: 0 16px;
+        border: none;
+        background-color: var(--color-lightgrey);
     }
 </style>
-<nav class="main-nav">
-    <div class="logo">ГК Стена</div>
-    <div class="toolbar">
+
+<header>
+    <nav class="header__nav">
         <ul>
             <li>
-                <a href="{{ route('categories.show', 'catalog') }}">Каталог продукции</a>
-                @if(isset($categories['catalog']['children']))
-                    <ul>
-                        @foreach($categories['catalog']['children'] as $category)
-                            <li>
-                                <a href="{{ route('categories.show', $category['slug']) }}">
-                                    {{ $category['title'] }}
-                                </a>
-                            </li>
-                        @endforeach
-                    </ul>
-                @endif
+                <a href="/pages/about">О&nbsp;компании</a>
             </li>
             <li>
-                <a href="{{ route('categories.show', 'solutions') }}">Решения</a>
-                @if(isset($categories['solutions']['children']))
-                    <ul>
-                        @foreach($categories['solutions']['children'] as $category)
-                            <li>
-                                <a href="{{ route('categories.show', $category['slug']) }}">
-                                    {{ $category['title'] }}
-                                </a>
-                            </li>
-                        @endforeach
-                    </ul>
-                @endif
+                <a href="/pages/contacts">Контакты</a>
             </li>
             <li>
-                <a href="{{ route('categories.show', 'textures') }}">Текстуры</a>
-                @if(isset($categories['textures']['children']))
-                    <ul>
-                        @foreach($categories['textures']['children'] as $category)
-                            <li>
-                                <a href="{{ route('categories.show', $category['slug']) }}">
-                                    {{ $category['title'] }}
-                                </a>
-                            </li>
-                        @endforeach
-                    </ul>
-                @endif
-            </li>
-            <li>
-                <a href="#">Дилерам и дизайнерам</a>
-            </li>
-            <li>
-                <a href="#">Производство под СТМ</a>
-            </li>
-            <li>
-                <a href="#">О компании</a>
-                <ul>
-                    <li>
-                        <a href="/pages/contacts">
-                            Контакты
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/pages/about">
-                            О нас
-                        </a>
-                    </li>
-                </ul>
+                <a href="#">Обратный&nbsp;звонок</a>
             </li>
         </ul>
 
-        <form>
-            <label class="search">
-                <input  type="search" placeholder="Поиск">
-                <button type="submit">Найти</button>
+        <form class="header__search">
+            <label>
+                <input type="search" placeholder="Поиск по сайту">
             </label>
         </form>
-    </div>
-</nav>
+
+        <ul>
+            <li class="mail">
+                <a href="mailto:info.stena18@mail.ru">info.stena18@mail.ru</a>
+            </li>
+            <li class="phone">
+                <a href="tel:+73412439700">+7 3412 439-700</a>
+            </li>
+        </ul>
+    </nav>
+</header>
