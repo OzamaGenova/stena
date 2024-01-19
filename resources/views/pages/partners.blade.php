@@ -62,7 +62,7 @@
     @component('components.form-solutions')
     @endcomponent
 
-    @component('components.home.project')
+    @component('components.home.projects')
     @endcomponent
 
 @endsection

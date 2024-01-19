@@ -18,7 +18,7 @@
             </div>
         @endfor
     </div>
-    <div class="card__button-block">
-        <a class="button" href="#">Посмотреть всех клиентов и партнёров</a>
-    </div>
+{{--    <div class="card__button-block">--}}
+{{--        <a class="button" href="#">Посмотреть всех клиентов и партнёров</a>--}}
+{{--    </div>--}}
 </section>

@@ -13,26 +13,8 @@
     @component('components.home.director-form')
     @endcomponent
 
-    <section class="home__products width-80">
-        <h2 class="font-xl">Наша продукция</h2>
-        <div class="card-list">
-            @for ($i = 0; $i < 4; $i++)
-                <section class="card card--large">
-                    <img class="card__img" src="/images/temp/product.png"/>
-                    <h3 class="card__title">Эко-краски с наночастицами</h3>
-                    <p class="card__content">
-                        PAINTTECH объединяет материалы для строительства и решения различных специальных технических
-                        задач. Материалы с наномодификаторами обладают улучшенными эксплуатационными свойствами. Теперь
-                        от
-                    </p>
-                    <a class="card__link link" href="#">Подробнее</a>
-                </section>
-            @endfor
-        </div>
-        <div class="card__button-block">
-            <a class="button" href="#">Посмотреть весь каталог продукции</a>
-        </div>
-    </section>
+    @component('components.home.products')
+    @endcomponent
 
     @component('components.home.solutions')
     @endcomponent
@@ -71,7 +53,7 @@
     @component('components.home.events')
     @endcomponent
 
-    @component('components.home.project')
+    @component('components.home.projects')
     @endcomponent
 
     @component('components.home.partners')
