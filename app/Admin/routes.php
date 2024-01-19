@@ -16,6 +16,7 @@ Route::group([
     $router->resource('editor/product-catalogs', ProductCatalogController::class);
     $router->resource('editor/products', ProductController::class);
     $router->resource('editor/solutions', SolutionController::class);
+    $router->resource('editor/events', EventController::class);
     $router->resource('editor/project-catalogs', ProjectCatalogController::class);
     $router->resource('editor/projects', ProjectController::class);
 });

@@ -11,6 +11,7 @@
 |
 */
 
+use App\Models\Event;
 use App\Models\Page;
 use App\Models\Product;
 use App\Models\ProductCatalog;
@@ -28,31 +29,6 @@ Route::get('pages/{slug}', function ($slug) {
     return view('default', ['content' => $record['content']]);
 });
 
-//Route::get('/categories/{slug}', function ($slug) {
-//    $category = View::shared('categories')[$slug] ?? [];
-//
-//    $categories = array_map(function ($item) {
-//        return $item['id'];
-//    }, $category['children'] ?? []);
-//    if (isset($category['id'])) array_push($categories, $category['id']);
-//
-//    $records = Product::query()->whereIn('catalog_id', $categories)->get();
-//
-//    return view('pages.catalog', [
-//        'category' => $category,
-//        'records' => $records
-//    ]);
-//})->name('categories.show');
-//
-//Route::get('/products/{id}', function ($id) {
-//    $record = Product::query()->with('category')->find($id);
-//    return view('pages.card', [
-//        'category' => $record->category,
-//        'record' => $record
-//    ]);
-//})->name('products.show');
-
-
 Route::get('/products', function () {
     $product_catalogs = ProductCatalog::query()
         ->where('parent_id', '=', 0)
@@ -68,9 +44,9 @@ Route::get('/products', function () {
         foreach ($product_catalog->children as $child) array_push($product_catalog_ids, $child->id);
         $query->whereIn('catalog_id', $product_catalog_ids);
     }
-    $products = $query->get();
+    $records = $query->get();
 
-    return view('pages.products', ['catalogs' => $product_catalogs, 'records' => $products]);
+    return view('pages.products', ['catalogs' => $product_catalogs, 'records' => $records]);
 })->name('products.index');
 
 Route::get('/products/{id}', function ($id) {
@@ -78,11 +54,11 @@ Route::get('/products/{id}', function ($id) {
 })->name('products.show');
 
 Route::get('/solutions', function () {
-    $solutions = Solution::query()
+    $records = Solution::query()
         ->orderBy('created_at')
         ->get();
 
-    return view('pages.solutions', ['records' => $solutions]);
+    return view('pages.solutions', ['records' => $records]);
 })->name('solutions.index');
 
 Route::get('/solutions/{id}', function ($id) {
@@ -105,9 +81,9 @@ Route::get('/projects', function () {
         $project_catalog = ProductCatalog::with('children')->find($project_catalog_id);
         $query->whereIn('catalog_id', [$project_catalog->id]);
     }
-    $projects = $query->get();
+    $records = $query->get();
 
-    return view('pages.projects', ['catalogs' => $project_catalogs, 'records' => $projects]);
+    return view('pages.projects', ['catalogs' => $project_catalogs, 'records' => $records]);
 })->name('projects.index');
 
 Route::get('/projects/{id}', function ($id) {
@@ -115,5 +91,13 @@ Route::get('/projects/{id}', function ($id) {
 })->name('projects.show');
 
 Route::get('/events', function () {
-    return view('pages.events');
+    $records = Event::query()
+        ->orderBy('created_at')
+        ->get();
+
+    return view('pages.events', ['records' => $records]);
 })->name('events.index');
+
+Route::get('/events/{id}', function ($id) {
+    return view('pages.card');
+})->name('events.show');
