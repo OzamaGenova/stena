@@ -17,7 +17,7 @@ class Product extends Model
 
     public function category(): BelongsTo
     {
-        return $this->belongsTo(Catalog::class, 'catalog_id');
+        return $this->belongsTo(ProductCatalog::class, 'catalog_id');
     }
 
     public function setImgAttribute($images)

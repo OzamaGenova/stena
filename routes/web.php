@@ -13,8 +13,11 @@
 
 use App\Models\Page;
 use App\Models\Product;
+use App\Models\ProductCatalog;
+use App\Models\Project;
+use App\Models\ProjectCatalog;
+use App\Models\Solution;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\View;
 
 Route::get('/', function () {
     return view('pages.home');
@@ -51,17 +54,66 @@ Route::get('pages/{slug}', function ($slug) {
 
 
 Route::get('/products', function () {
-    return view('pages.products');
+    $product_catalogs = ProductCatalog::query()
+        ->where('parent_id', '=', 0)
+        ->orderBy('order')
+        ->with(['children'])
+        ->get();
+
+    $query = Product::query()->orderBy('created_at');
+    $product_catalog_id = request()->query('catalog_id');
+    if ($product_catalog_id) {
+        $product_catalog = ProductCatalog::with('children')->find($product_catalog_id);
+        $product_catalog_ids = [$product_catalog->id];
+        foreach ($product_catalog->children as $child) array_push($product_catalog_ids, $child->id);
+        $query->whereIn('catalog_id', $product_catalog_ids);
+    }
+    $products = $query->get();
+
+    return view('pages.products', ['catalogs' => $product_catalogs, 'records' => $products]);
 })->name('products.index');
 
+Route::get('/products/{id}', function ($id) {
+    return view('pages.card');
+})->name('products.show');
+
 Route::get('/solutions', function () {
-    return view('pages.solutions');
+    $solutions = Solution::query()
+        ->orderBy('created_at')
+        ->get();
+
+    return view('pages.solutions', ['records' => $solutions]);
 })->name('solutions.index');
+
+Route::get('/solutions/{id}', function ($id) {
+    return view('pages.card');
+})->name('solutions.show');
 
 Route::get('/partners', function () {
     return view('pages.partners');
 })->name('partners.index');
 
 Route::get('/projects', function () {
-    return view('pages.projects');
+    $project_catalogs = ProjectCatalog::query()
+        ->where('parent_id', '=', 0)
+        ->orderBy('order')
+        ->get();
+
+    $query = Project::query()->orderBy('created_at');
+    $project_catalog_id = request()->query('catalog_id');
+    if ($project_catalog_id) {
+        $project_catalog = ProductCatalog::with('children')->find($project_catalog_id);
+        $query->whereIn('catalog_id', [$project_catalog->id]);
+    }
+    $projects = $query->get();
+
+    return view('pages.projects', ['catalogs' => $project_catalogs, 'records' => $projects]);
 })->name('projects.index');
+
+Route::get('/projects/{id}', function ($id) {
+    return view('pages.card');
+})->name('projects.show');
+
+Route::get('/events', function () {
+    return view('pages.events');
+})->name('events.index');

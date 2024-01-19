@@ -7,11 +7,11 @@
                 <h3 class="card__title" style="font-weight: normal; font-size: 1rem;">
                     Запустили новую краску Мадам Палет с био-добавками и нано-частицами
                 </h3>
-                <p class="cards__info">01.11.2022</p>
+                <p class="card__info">01.11.2022</p>
             </section>
         @endfor
     </div>
     <div class="card__button-block">
-        <a class="button" href="#">Посмотреть все события</a>
+        <a class="button" href="{{ route('events.index') }}">Посмотреть все события</a>
     </div>
 </section>

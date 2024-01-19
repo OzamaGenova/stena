@@ -2,7 +2,7 @@
 
 namespace App\Admin\Controllers;
 
-use App\Models\Catalog;
+use App\Models\ProjectCatalog;
 use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Controllers\HasResourceActions;
 use Encore\Admin\Form;
@@ -14,7 +14,7 @@ use Encore\Admin\Show;
 use Encore\Admin\Tree;
 use Encore\Admin\Widgets\Box;
 
-class CatalogController extends AdminController
+class ProjectCatalogController extends AdminController
 {
     use HasResourceActions;
 
@@ -23,7 +23,7 @@ class CatalogController extends AdminController
      *
      * @var string
      */
-    protected $title = 'App\Models\Catalog';
+    protected $title = 'App\Models\ProjectCatalog';
 
     public function index(Content $content)
     {
@@ -32,19 +32,10 @@ class CatalogController extends AdminController
 
             $row->column(6, function (Column $column) {
                 $form = new \Encore\Admin\Widgets\Form();
-                $form->action(admin_base_path('editor/catalogs'));
+                $form->action(admin_base_path('editor/project-catalogs'));
 
-                $form->select('parent_id', trans('Родитель'))->options(Catalog::selectOptions());
+                $form->select('parent_id', trans('Родитель'))->options(ProjectCatalog::selectOptions());
                 $form->text('title', trans('Название'))->rules('required');
-                $form->text('slug', trans('Ссылка'))->rules('required');
-                $form->image('img', 'Изображение')
-                    ->options([])
-                    ->move('catalogs')
-                    ->removable()
-                    ->uniqueName()
-                    ->rules(function () {
-                        return 'mimes:jpg,png';
-                    });
 
                 $form->hidden('_token')->default(csrf_token());
 
@@ -58,7 +49,7 @@ class CatalogController extends AdminController
      */
     protected function treeView()
     {
-        return Catalog::tree(function (Tree $tree) {
+        return ProjectCatalog::tree(function (Tree $tree) {
             $tree->disableCreate();
 
             $tree->branch(function ($branch) {
@@ -74,21 +65,12 @@ class CatalogController extends AdminController
      */
     public function form()
     {
-        $form = new Form(new Catalog());
+        $form = new Form(new ProjectCatalog());
 
         $form->display('id', 'ID');
 
-        $form->select('parent_id', trans('Родитель'))->options(Catalog::selectOptions());
+        $form->select('parent_id', trans('Родитель'))->options(ProjectCatalog::selectOptions());
         $form->text('title', trans('Название'))->rules('required');
-        $form->text('slug', trans('Ссылка'))->rules('required');
-        $form->image('img', 'Изображение')
-            ->options([])
-            ->move('catalogs')
-            ->removable()
-            ->uniqueName()
-            ->rules(function () {
-                return 'mimes:jpg,png';
-            });
 
         return $form;
     }

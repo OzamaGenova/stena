@@ -46,46 +46,16 @@
     </style>
     <section class="width-80">
         <ul class="category-list">
-            <li>
-                <a class="link" href="#">Интерьерные краски</a>
-                <ul>
-                    <li><a class="link" href="#">Для обоев</a></li>
-                    <li><a class="link" href="#">Для потолков</a></li>
-                    <li><a class="link" href="#">Для влажных помещений</a></li>
-                    <li><a class="link" href="#">Для спален и гостиных</a></li>
-                    <li><a class="link" href="#">Для офисов и холлов</a></li>
-                </ul>
-            </li>
-            <li>
-                <a class="link" href="#">Фасадные краски</a>
-                <ul>
-                    <li><a class="link" href="#">Для обоев</a></li>
-                    <li><a class="link" href="#">Для потолков</a></li>
-                    <li><a class="link" href="#">Для влажных помещений</a></li>
-                    <li><a class="link" href="#">Для спален и гостиных</a></li>
-                    <li><a class="link" href="#">Для офисов и холлов</a></li>
-                </ul>
-            </li>
-            <li>
-                <a class="link" href="#">Эмали</a>
-                <ul>
-                    <li><a class="link" href="#">Для обоев</a></li>
-                    <li><a class="link" href="#">Для потолков</a></li>
-                    <li><a class="link" href="#">Для влажных помещений</a></li>
-                    <li><a class="link" href="#">Для спален и гостиных</a></li>
-                    <li><a class="link" href="#">Для офисов и холлов</a></li>
-                </ul>
-            </li>
-            <li>
-                <a class="link" href="#">Грунты</a>
-                <ul>
-                    <li><a class="link" href="#">Для обоев</a></li>
-                    <li><a class="link" href="#">Для потолков</a></li>
-                    <li><a class="link" href="#">Для влажных помещений</a></li>
-                    <li><a class="link" href="#">Для спален и гостиных</a></li>
-                    <li><a class="link" href="#">Для офисов и холлов</a></li>
-                </ul>
-            </li>
+            @foreach($catalogs as $catalog)
+                <li>
+                    <a class="link" href="?catalog_id={{ $catalog->id }}">{{ $catalog->title }}</a>
+                    <ul>
+                        @foreach($catalog->children as $child)
+                            <li><a class="link" href="?catalog_id={{ $child->id }}">{{ $child->title }}</a></li>
+                        @endforeach
+                    </ul>
+                </li>
+            @endforeach
         </ul>
     </section>
 
@@ -98,23 +68,38 @@
 
     <style>
         .card-list-product {
-            display: grid;
-            width: 100%;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            grid-gap: 24px;
-            overflow: hidden;
+            grid-template-columns: repeat(auto-fit, minmax(384px, 1fr));
+            padding-bottom: 240px;
+        }
+
+        .card-product-wrapper {
+            width: 384px;
+            position: relative;
         }
 
         .card-product {
             display: flex;
             flex-direction: column;
             align-items: center;
+            background-color: var(--color-white);
+        }
+
+        .card-product--details {
+            display: none;
+            position: absolute;
+            top: 11px;
+            left: 11px;
+            right: 11px;
+            box-shadow: 0 0 10px var(--color-darkgrey);
+            z-index: 100;
         }
 
         .card-product a {
-            position: relative;
             display: block;
-            background-color: var(--color-white);
+        }
+
+        .card-product img {
+            width: 100%;
         }
 
         .card-product__title, .card-product__content {
@@ -122,38 +107,43 @@
         }
 
         .card-product__info {
-            display: none;
             width: 100%;
             padding: 0 16px;
         }
 
-        .card-product a:hover {
-            position: absolute;
-            box-shadow: 0 0 10px var(--color-darkgrey);
-            z-index: 100;
-        }
-
-        .card-product a:hover .card-product__info {
+        .card-product-wrapper:hover .card-product--details {
             display: block;
         }
     </style>
-    <section class="card-list-product width-80">
-        @for ($i = 0; $i < 36; $i++)
-            <section class="card-product">
-                <a href="#">
-                    <img class="card-product__img" src="/images/temp/tin.png"/>
-                    <h3 class="card-product__title">Краска «Сильвер Нано»</h3>
-                    <p class="card-product__content">12 литров</p>
-                    <div class="card-product__info">
-                        <p><span>1л / 6м2</span> <span>24 часа</span></p>
-                        <p><span>Огнестойкость КМО</span></p>
-                        <p><span>Кисть валик распылитель</span></p>
-                        <p><span>Колеруется</span></p>
-                        <p><span>1л / 3л / 5л / 12л / 25л</span></p>
-                    </div>
-                </a>
+    <section class="card-grid card-list-product width-80">
+        @foreach($records as $record)
+            <section class="card-product-wrapper">
+                <section class="card-product card-product--short">
+                    <a href="{{ route('products.show', ['id' => $record->id]) }}">
+                        <img class="card-product__img"
+                             src="{{ Storage::disk(config('admin.upload.disk'))->url($record->img[0] ?? '') }}"/>
+                        <h3 class="card-product__title">{{ $record->title }}</h3>
+                        <p class="card-product__content">{{ $record->volume ?? '' }}</p>
+                    </a>
+                </section>
+                <section class="card-product card-product--details">
+                    <a href="{{ route('products.show', ['id' => $record->id]) }}">
+                        <img class="card-product__img"
+                             src="{{ Storage::disk(config('admin.upload.disk'))->url($record->img[0] ?? '') }}"/>
+                        <h3 class="card-product__title">{{ $record->title }}</h3>
+                        <p class="card-product__content">{{ $record->volume ?? '' }}</p>
+                        <div class="card-product__info">
+                            <p><span>{{ $record->consumption ?? '' }}</span>
+                                <span>{{ $record->drying_time ?? '' }}</span></p>
+                            <p><span>{{ $record->fire_resistance ?? '' }}</span></p>
+                            <p><span>{{ $record->applying ?? '' }}</span></p>
+                            <p><span>{{ $record->colored ?? '' }}</span></p>
+                            <p><span>{{ $record->possible_volume ?? '' }}</span></p>
+                        </div>
+                    </a>
+                </section>
             </section>
-        @endfor
+        @endforeach
     </section>
 
 @endsection

@@ -98,19 +98,19 @@
         <div class="footer__nav-row">
             <ul>
                 <li>
-                    <a href="#">Каталог продукции</a>
+                    <a href="{{ route('products.index') }}">Каталог продукции</a>
                 </li>
                 <li>
-                    <a href="#">Решения и технологии</a>
+                    <a href="{{ route('solutions.index') }}">Решения и технологии</a>
                 </li>
                 <li>
-                    <a href="#">Дилеры и партнёры</a>
+                    <a href="{{ route('partners.index') }}">Дилеры и партнёры</a>
                 </li>
                 <li>
                     <a href="#">Производство под заказ</a>
                 </li>
                 <li>
-                    <a href="#">Реализованные проекты</a>
+                    <a href="{{ route('projects.index') }}">Реализованные проекты</a>
                 </li>
             </ul>
         </div>

@@ -2,7 +2,6 @@
 
 namespace App\Providers;
 
-use App\Models\Catalog;
 use App\Models\Seo;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\View;
@@ -27,10 +26,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $categories = Catalog::with(['parent', 'children'])->get();
-        $categories = $categories->keyBy('slug')->toArray();
-        View::share('categories', $categories);
-
         $url = URL::current();
         $path = parse_url($url, PHP_URL_PATH) ?? '/';
         $seo = Seo::query()->where('url', '=', $path)->first();

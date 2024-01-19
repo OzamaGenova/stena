@@ -47,29 +47,22 @@
         </p>
     </section>
 
-    <section class="width-80">
-        <div class="card-list">
-            @for ($i = 0; $i < 4; $i++)
-                <section class="card card--medium">
-                    <img class="card__img" src="/images/temp/solution.png"/>
-                    <h3 class="card__title">Флоковые покрытия</h3>
-                    <p class="card__content">
-                        Текстовый анонс, который открывается при наведении курсора
-                    </p>
-                </section>
-            @endfor
-        </div>
-        <div class="card-list">
-            @for ($i = 0; $i < 4; $i++)
-                <section class="card card--medium">
-                    <img class="card__img" src="/images/temp/solution.png"/>
-                    <h3 class="card__title">Флоковые покрытия</h3>
-                    <p class="card__content">
-                        Текстовый анонс, который открывается при наведении курсора
-                    </p>
-                </section>
-            @endfor
-        </div>
+    <style>
+        .card-list-solution {
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+        }
+    </style>
+    <section class="card-grid card-list-solution width-80">
+        @foreach($records as $record)
+            <section class="card card--medium">
+                <a href="{{ route('solutions.show', ['id' => $record->id]) }}">
+                    <img class="card__img"
+                         src="{{ Storage::disk(config('admin.upload.disk'))->url($record->img[0] ?? '') }}"/>
+                    <h3 class="card__title">{{ $record->title }}</h3>
+                    <p class="card__content">{{ $record->short_description }}</p>
+                </a>
+            </section>
+        @endforeach
     </section>
 
     @component('components.promotion')

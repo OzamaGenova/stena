@@ -25,33 +25,30 @@
     <section class="width-80">
         <p style="color: var(--color-text-lightgrey)">Выберите сферу реализации проектов</p>
         <p class="category-projects-list">
-            <a class="link" href="#">Все проекты</a>
-            <a class="link" href="#">Застройщики</a>
-            <a class="link" href="#">Собственные технологии</a>
-            <a class="link" href="#">Общественные здания</a>
-            <a class="link" href="#">Частные дома</a>
+            <a class="link" href="{{ route('projects.index') }}">Все проекты</a>
+            @foreach($catalogs as $catalog)
+                <a class="link" href="?catalog_id={{ $catalog->id }}">{{ $catalog->title }}</a>
+            @endforeach
         </p>
     </section>
 
-    <div class="card-list">
-        @for ($i = 0; $i < 6; $i++)
+    <style>
+        .card-list-project {
+            grid-template-columns: repeat(auto-fit, minmax(165px, 1fr));
+        }
+    </style>
+    <div class="card-grid width-80 card-list-project">
+        @foreach($records as $record)
             <section class="card card--small">
-                <img class="card__img" src="/images/temp/project.png"/>
-                <h3 class="card__title">Покраска МОПов</h3>
-                <p class="card__content">Использовали 500 литров штукатурки</p>
-                <p class="cards__info">Дмитров</p>
+                <a href="{{ route('projects.show', ['id' => $record->id]) }}">
+                    <img class="card__img"
+                         src="{{ Storage::disk(config('admin.upload.disk'))->url($record->img[0] ?? '') }}"/>
+                    <h3 class="card__title">{{ $record->title }}</h3>
+                    <p class="card__content">{{ $record->short_description }}</p>
+                    <p class="card__info">{{ $record->city }}</p>
+                </a>
             </section>
-        @endfor
-    </div>
-    <div class="card-list">
-        @for ($i = 0; $i < 6; $i++)
-            <section class="card card--small">
-                <img class="card__img" src="/images/temp/project.png"/>
-                <h3 class="card__title">Покраска МОПов</h3>
-                <p class="card__content">Использовали 500 литров штукатурки</p>
-                <p class="cards__info">Дмитров</p>
-            </section>
-        @endfor
+        @endforeach
     </div>
 
     @component('components.home.solutions')

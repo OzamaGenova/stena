@@ -6,11 +6,11 @@
                 <img class="card__img" src="/images/temp/project.png"/>
                 <h3 class="card__title">Покраска МОПов</h3>
                 <p class="card__content">Использовали 500 литров штукатурки</p>
-                <p class="cards__info">Дмитров</p>
+                <p class="card__info">Дмитров</p>
             </section>
         @endfor
     </div>
     <div class="card__button-block">
-        <a class="button" href="#">Посмотреть все проекты</a>
+        <a class="button" href="{{ route('projects.index') }}">Посмотреть все проекты</a>
     </div>
 </section>

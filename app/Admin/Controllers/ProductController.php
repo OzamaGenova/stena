@@ -2,7 +2,7 @@
 
 namespace App\Admin\Controllers;
 
-use App\Models\Catalog;
+use App\Models\ProductCatalog;
 use App\Models\Product;
 use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
@@ -30,7 +30,6 @@ class ProductController extends AdminController
         $grid->column('id', __('Id'));
         $grid->column('title', __('Название'));
         $grid->column('code', __('Артикул'));
-        $grid->column('brand', __('Бренд'));
 
         return $grid;
     }
@@ -46,13 +45,20 @@ class ProductController extends AdminController
         $show = new Show(Product::findOrFail($id));
 
         $show->field('id', __('Id'));
-        $show->field('title', __('Title'));
-        $show->field('catalog_id', __('Catalog id'));
-        $show->field('code', __('Code'));
-        $show->field('brand', __('Brand'));
-        $show->field('series', __('Series'));
-        $show->field('description', __('Description'));
-        $show->field('specifications', __('Specifications'));
+        $show->field('title', __('Название'));
+        $show->field('catalog_id', __('Категория id'));
+
+        $show->field('volume', __('Объём'));
+        $show->field('code', __('Артикул'));
+        $show->field('consumption', __('Расход'));
+        $show->field('drying_time', __('Время высыхания'));
+        $show->field('applying', __('Нанесение'));
+        $show->field('possible_volume', __('Возможный объём'));
+        $show->field('fire_resistance', __('Огнестойкость'));
+        $show->field('colored', __('Колеруется'));
+
+        $show->field('short_description', __('Краткое описание'));
+        $show->field('description', __('Описание'));
 
         return $show;
     }
@@ -67,7 +73,7 @@ class ProductController extends AdminController
         $form = new Form(new Product);
 
         $form->text('title', __('Название'))->rules('required');
-        $form->select('catalog_id', trans('Категория'))->options(Catalog::selectOptions())->rules('required');
+        $form->select('catalog_id', trans('Категория'))->options(ProductCatalog::selectOptions())->rules('required');
         $form->multipleImage('img', 'Изображения')
             ->options([])
             ->move('products')
@@ -76,12 +82,18 @@ class ProductController extends AdminController
             ->rules(function () {
                 return 'mimes:jpg,png';
             });
+
+        $form->text('volume', __('Объём'));
         $form->text('code', __('Артикул'));
-        $form->text('brand', __('Бренд'));
-        $form->text('series', __('Серия'));
+        $form->text('consumption', __('Расход'));
+        $form->text('drying_time', __('Время высыхания'));
+        $form->text('applying', __('Нанесение'));
+        $form->text('possible_volume', __('Возможный объём'));
+        $form->text('fire_resistance', __('Огнестойкость'));
+        $form->text('colored', __('Колеруется'));
+
         $form->textarea('short_description', __('Краткое описание'));
         $form->ckeditor('description', __('Описание'));
-        $form->textarea('specifications', __('Хар-ки'));
 
         return $form;
     }
