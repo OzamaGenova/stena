@@ -48,8 +48,8 @@
             <li class="{{ (\Request::route()->getName() == 'partners.index') ? 'active' : '' }}">
                 <a href="{{ route('partners.index') }}">Дилеры и партнёры</a>
             </li>
-            <li>
-                <a href="#">Производство под заказ</a>
+            <li class="{{ (\Request::route()->getName() == 'stm') ? 'active' : '' }}">
+                <a href="{{ route('stm') }}">Производство под заказ</a>
             </li>
             <li class="{{ (\Request::route()->getName() == 'projects.index') ? 'active' : '' }}">
                 <a href="{{ route('projects.index') }}">Реализованные проекты</a>

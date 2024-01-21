@@ -101,3 +101,7 @@ Route::get('/events', function () {
 Route::get('/events/{id}', function ($id) {
     return view('pages.event', ['record' => Event::query()->find($id)]);
 })->name('events.show');
+
+Route::get('/stm', function () {
+    return view('pages.stm');
+})->name('stm');

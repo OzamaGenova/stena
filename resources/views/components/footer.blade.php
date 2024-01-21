@@ -107,7 +107,7 @@
                     <a href="{{ route('partners.index') }}">Дилеры и партнёры</a>
                 </li>
                 <li>
-                    <a href="#">Производство под заказ</a>
+                    <a href="{{ route('stm') }}">Производство под заказ</a>
                 </li>
                 <li>
                     <a href="{{ route('projects.index') }}">Реализованные проекты</a>
