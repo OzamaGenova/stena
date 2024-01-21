@@ -62,7 +62,7 @@ Route::get('/solutions', function () {
 })->name('solutions.index');
 
 Route::get('/solutions/{id}', function ($id) {
-    return view('pages.card', ['record' => Solution::query()->find($id)]);
+    return view('pages.solution', ['record' => Solution::query()->find($id)]);
 })->name('solutions.show');
 
 Route::get('/partners', function () {
@@ -87,7 +87,7 @@ Route::get('/projects', function () {
 })->name('projects.index');
 
 Route::get('/projects/{id}', function ($id) {
-    return view('pages.card', ['record' => Project::query()->find($id)]);
+    return view('pages.project', ['record' => Project::query()->find($id)]);
 })->name('projects.show');
 
 Route::get('/events', function () {
@@ -99,5 +99,5 @@ Route::get('/events', function () {
 })->name('events.index');
 
 Route::get('/events/{id}', function ($id) {
-    return view('pages.card', ['record' => Event::query()->find($id)]);
+    return view('pages.event', ['record' => Event::query()->find($id)]);
 })->name('events.show');
