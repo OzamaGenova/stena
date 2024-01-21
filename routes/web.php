@@ -50,7 +50,7 @@ Route::get('/products', function () {
 })->name('products.index');
 
 Route::get('/products/{id}', function ($id) {
-    return view('pages.card', ['record' => Product::query()->find($id)]);
+    return view('pages.product', ['record' => Product::query()->find($id)]);
 })->name('products.show');
 
 Route::get('/solutions', function () {
