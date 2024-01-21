@@ -53,7 +53,7 @@ class ProductCatalogController extends AdminController
             $tree->disableCreate();
 
             $tree->branch(function ($branch) {
-                return "<strong>{$branch['title']}</strong>&nbsp;&nbsp;&nbsp;<a>/{$branch['slug']}</a>";
+                return "<strong>{$branch['title']}</strong>";
             });
         });
     }
