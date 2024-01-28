@@ -156,21 +156,28 @@
             <p class="modal-card__add font-s" onclick="add()">+ Добавить ещё один элемент</p>
 
             <script>
-                const toInt = (val, def = 0) => {
-                    return parseInt(val, 10) || def;
+                const toFloat = (val, def = 0) => {
+                    return parseFloat(val) || def;
                 }
                 const getSquare = (surface) => {
-                    return toInt(surface.querySelector('input[name="width"]').value) * toInt(surface.querySelector('input[name="height"]').value);
+                    return toFloat(surface.querySelector('input[name="width"]').value) * toFloat(surface.querySelector('input[name="height"]').value);
                 }
                 const calculate = () => {
                     const wall = document.querySelector('.wall');
                     let s = getSquare(wall);
                     const holes = document.querySelectorAll('.hole');
                     for (let i = 0; i < holes.length; i++) s -= getSquare(holes[i]);
-                    s = Math.round(s / ((100 * 10) * (100 * 10)));
-                    let con = parseInt('{{ $record->consumption }}', 10);
-                    const error = isNaN(con) ? 'Расход краски задан неверно, поэтому невозможно определить расход по площади, обратитесь в службу поддержки' : '';
-                    const res = s * toInt(con);
+                    s = Math.ceil(s / ((100 * 10) * (100 * 10)));
+
+                    /* используется формат *л / *м², поэтому нужно рассчитать con */
+                    const match = '{{ $record->consumption }}'.match(/(?<a>.+)\/(?<b>.+)/);
+                    const a = parseInt(match?.groups.a, 10);
+                    const b = parseInt(match?.groups.b, 10);
+                    const error = isNaN(a) || isNaN(b) ? 'Расход краски задан неверно, поэтому невозможно определить расход по площади, обратитесь в службу поддержки' : '';
+                    /* конечный расход на 1 км м*/
+                    const con = toFloat(a) / toFloat(b);
+
+                    const res = Math.ceil(s * con);
                     document.querySelector('.modal-card__answer').innerHTML = `Расход краски <span class="button">${res} литра</span> на ${s} м²`;
                     document.querySelector('.modal-card__error').innerHTML = error;
                 }

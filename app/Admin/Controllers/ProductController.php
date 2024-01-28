@@ -85,7 +85,7 @@ class ProductController extends AdminController
 
         $form->text('volume', __('Объём'));
         $form->text('code', __('Артикул'));
-        $form->text('consumption', __('Расход'));
+        $form->text('consumption', __('Расход ФОРМАТ СТРОГО *л / *м², ОТ ЭТОГО ЗАВИСИТ РАБОТА КАЛЬКУЛЯТОРА'));
         $form->text('drying_time', __('Время высыхания'));
         $form->text('applying', __('Нанесение'));
         $form->text('possible_volume', __('Возможный объём'));
