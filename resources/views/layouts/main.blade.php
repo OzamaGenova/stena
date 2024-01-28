@@ -19,6 +19,9 @@
 </head>
 
 <style>
+    .clipped {
+        overflow: hidden!important;
+    }
     main {
         display: flex;
         align-items: center;

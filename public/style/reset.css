@@ -24,6 +24,7 @@ fieldset {
     color: var(--color-text-white);
     background-color: var(--color-button);
     border: 0;
+    cursor: pointer;
 }
 
 label, input, textarea {

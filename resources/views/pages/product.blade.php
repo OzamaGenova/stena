@@ -40,6 +40,11 @@
             <p><b>Колеруется:</b> <span>{{ $record->colored ?? '' }}</span></p>
             <p><b>Возможный объём:</b> <span>{{ $record->possible_volume ?? '' }}</span></p>
             <p><b>{{ $record->code }}</b></p>
+            <button
+                class="button"
+                onclick="document.querySelector('.modal').classList.remove('hide') || document.body.classList.add('clipped')">
+                Калькулятор расхода
+            </button>
         </div>
     </div>
 
@@ -48,4 +53,6 @@
     @component('components.home.products')
     @endcomponent
 
+    @component('components.calc', ['record' => $record])
+    @endcomponent
 @endsection
