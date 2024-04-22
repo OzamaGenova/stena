@@ -14,6 +14,6 @@
         @endforeach
     </div>
     <div class="card__button-block">
-        <a class="button" href="{{ route('products.index') }}">Посмотреть весь каталог продукции</a>
+        <a class="button" href="{{ route('products.index') }}">Посмотрите весь каталог продукции</a>
     </div>
 </section>

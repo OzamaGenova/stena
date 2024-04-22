@@ -16,6 +16,6 @@
         @endforeach
     </div>
     <div class="card__button-block">
-        <a class="button" href="{{ route('events.index') }}">Посмотреть все события</a>
+        <a class="button" href="{{ route('events.index') }}">Посмотрите все события</a>
     </div>
 </section>

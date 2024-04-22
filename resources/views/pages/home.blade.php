@@ -32,7 +32,7 @@
         }
     </style>
     <section class="home__city-form  width-80">
-        <h2 class="font-xl">Напишите в каком городе Вы хотите курить нашу продукцию</h2>
+        <h2 class="font-xl">Напишите в каком городе Вы хотите купить нашу продукцию</h2>
         <h3 class="font-l">и мы перезвоним вам</h3>
         <form>
             <label style="grid-area: name">

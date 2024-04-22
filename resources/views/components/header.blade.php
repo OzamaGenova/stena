@@ -45,13 +45,13 @@
     <nav class="header__nav">
         <ul>
             <li>
-                <a href="/pages/about">О&nbsp;компании</a>
+                <a href="/pages/about">●&nbsp;О&nbsp;компании</a>
             </li>
             <li>
-                <a href="/pages/contacts">Контакты</a>
+                <a href="/pages/contacts">●&nbsp;&nbsp;Контакты</a>
             </li>
             <li>
-                <a href="#">Обратный&nbsp;звонок</a>
+                <a href="#">●&nbsp;&nbsp;Обратный&nbsp;звонок</a>
             </li>
         </ul>
 
@@ -63,10 +63,10 @@
 
         <ul>
             <li class="mail">
-                <a href="mailto:info.stena18@mail.ru">info.stena18@mail.ru</a>
+                <a href="mailto:info.stena18@mail.ru">✉info.stena18@mail.ru</a>
             </li>
             <li class="phone">
-                <a href="tel:+73412439700">+7 3412 439-700</a>
+                <a href="tel:+73412439700">☎+7 3412 439-700</a>
             </li>
         </ul>
     </nav>

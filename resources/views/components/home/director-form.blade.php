@@ -46,6 +46,11 @@
             "message message"
             "send ."
     }
+    .font-x2{
+        color:white;
+        position: relative;
+        top:-63px;
+    }
 </style>
 
 <section class="director-form-home">
@@ -55,7 +60,7 @@
             <img src="/images/director.png"/>
         </div>
         <div>
-            <h2 class="font-xl">Обращение генеральному директору</h2>
+            <h2 class="font-x2">Обращение генеральному директору</h2>
             <article>
                 <p>
                     Сегодня разработана и активно реализуется философия экологического пространства, реализованная в
@@ -79,7 +84,7 @@
                 Искренне Ваш, Андрей Овчинников<br>
                 Генеральный директор Группы компаний «Стена»
             </cite>
-            <h2 class="font-xl">Задайте вопрос генеральному директору</h2>
+            <h2 class="font-x1">Задайте вопрос директору</h2>
             <form>
                 <label style="grid-area: name">
                     <input class="input" placeholder="Ваше имя">

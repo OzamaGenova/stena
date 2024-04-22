@@ -13,6 +13,6 @@
         @endforeach
     </div>
     <div class="card__button-block">
-        <a class="button" href="#">Посмотреть все решения</a>
+        <a class="button" href="#">Посмотрите все решения</a>
     </div>
 </section>

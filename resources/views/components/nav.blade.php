@@ -6,13 +6,15 @@
 
     .nav-main ul {
         display: flex;
-        flex-direction: row;
+        flex-wrap: wrap;
         justify-content: space-around;
-        gap: 24px;
+        gap: 120px;
     }
 
     .nav-main li {
         display: block;
+        width: 150px; 
+        text-align: center;
     }
 
     .nav-main a {

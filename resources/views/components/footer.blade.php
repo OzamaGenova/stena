@@ -70,21 +70,21 @@
         <div class="footer__nav-row">
             <ul>
                 <li>
-                    <a href="/pages/about">О&nbsp;компании</a>
+                    <a href="/pages/about">●&nbsp;&nbsp;О&nbsp;компании</a>
                 </li>
                 <li>
-                    <a href="/pages/contacts">Контакты</a>
+                    <a href="/pages/contacts">●&nbsp;&nbsp;Контакты</a>
                 </li>
                 <li>
-                    <a href="#">Обратный&nbsp;звонок</a>
+                    <a href="#">●&nbsp;&nbsp;Обратный&nbsp;звонок</a>
                 </li>
             </ul>
             <ul>
                 <li class="mail">
-                    <a href="mailto:info.stena18@mail.ru">info.stena18@mail.ru</a>
+                    <a href="mailto:info.stena18@mail.ru">✉info.stena18@mail.ru</a>
                 </li>
                 <li class="phone">
-                    <a href="tel:+73412439700">+7 3412 439-700</a>
+                    <a href="tel:+73412439700">☎+7 3412 439-700</a>
                 </li>
             </ul>
         </div>
@@ -98,19 +98,19 @@
         <div class="footer__nav-row">
             <ul>
                 <li>
-                    <a href="{{ route('products.index') }}">Каталог продукции</a>
+                    <a href="{{ route('products.index') }}">●&nbsp;&nbsp;Каталог продукции</a>
                 </li>
                 <li>
-                    <a href="{{ route('solutions.index') }}">Решения и технологии</a>
+                    <a href="{{ route('solutions.index') }}">●&nbsp;&nbsp;Решения и технологии</a>
                 </li>
                 <li>
-                    <a href="{{ route('partners.index') }}">Дилеры и партнёры</a>
+                    <a href="{{ route('partners.index') }}">●&nbsp;&nbsp;Дилеры и партнёры</a>
                 </li>
                 <li>
-                    <a href="{{ route('stm') }}">Производство под заказ</a>
+                    <a href="{{ route('stm') }}">●&nbsp;&nbsp;Производство под заказ</a>
                 </li>
                 <li>
-                    <a href="{{ route('projects.index') }}">Реализованные проекты</a>
+                    <a href="{{ route('projects.index') }}">●&nbsp;&nbsp;Реализованные проекты</a>
                 </li>
             </ul>
         </div>

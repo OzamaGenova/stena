@@ -50,7 +50,7 @@
 <section>
     <h2 class="font-xl">Наша продукция</h2>
 
-    <section class="card-grid card-list-product width-80">
+    <section class="card-grid card-list-product">
         @foreach($products as $record)
             <section class="card-product-wrapper">
                 <section class="card-product card-product--short">
@@ -80,7 +80,7 @@
             </section>
         @endforeach
         <div class="card__button-block">
-            <a class="button" href="{{ route('projects.index') }}">Посмотреть весь каталог продукции</a>
+            <a class="button" href="{{ route('projects.index') }}">Посмотрите весь каталог продукции</a>
         </div>
     </section>
 </section>
