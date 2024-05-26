@@ -1,114 +1,151 @@
 <style>
-    .home__slider{
+    * {
+        box-sizing: border-box
+    }
+    img {
+        vertical-align: middle;
+    }       
+    .home__slider {
         width: 100%;
-        height: 704px;
+        height: 75vh;
         overflow: hidden;
     }
-    .navigation{
-        position: absolute;
-        bottom:16px;
-        left:50%;
-        transform: translate(-50%,-800%);
-        display:flex;
-    }
-    .bar{
-        height:10px;
-        width: 10px;
-        margin: 6px;
-        cursor: pointer;
-        opacity: .7;
-        -webkit-border-radius: 50%;
-        -moz-border-radius: 50%;
-        -o-border-radius: 50%;
-        border-radius: 50%;
-        transition: all .4s ease;
-    }
-    .bar:after{
-        border: 2px solid rgb(0,0,0);
-        content: " ";
-        display: block;
-        height: 12px;
-        left: -3px;
-        position: relative;
-        top: -3px;
-        width: 12px;
-        -webkit-border-radius: 50%;
-        -moz-border-radius: 50%;
-        -o-border-radius: 50%;
-        border-radius: 50%;
-    }
-    .bar:hover{
-        background-color: rgba(0,0,0,0.5);
-        opacity:1;
-        transform: scale(1.2);
-    }
-    input[name = "r"]{
-        position:absolute;
-        visibility:hidden;
-    }
     .slides {
+        display: flex;
         width: 500%;
         height: 100%;
-        display: flex;
-        border: 2px solid black;
     }
-    .slides img{
+
+    .slide {
+        width: 20%;
+        flex: none;
+        display: none
+    }
+
+    .slide img {
         width: 100%;
-        height:100%;
-        border: 2px solid black;
+        height: 100%;
+        display: block;
     }
-    #r1:checked ~ .s1{
-        margin-left:0;
-        transition: 0.3s ease-in-out;
+
+    .prev, .next {
+        cursor: pointer;
+        position: absolute;
+        top: 45%;
+        padding: 16px;
+        margin: -25px 10px;
+        color: white;
+        font-size: 20px;
+        transition: 0.6s ease;
+        border-radius: 50%;
     }
-    #r2:checked ~ .s1{
-        margin-left:-20%;
-        transition: 0.3s ease-in-out;
+
+    .next {
+        right: 0;
+        border-radius: 3px 0 0 3px;
     }
-    #r3:checked ~ .s1{
-        margin-left:-40%;
-        transition: 0.3s ease-in-out;
+
+    .prev:hover, .next:hover {
+        background-color: rgba(0,0,0,0.8);
+        border-radius: 50%;
     }
-    #r4:checked ~ .s1{
-        margin-left:-60%;
-        transition: 0.3s ease-in-out;
+
+    .dot {
+        position: relative;
+        top: -20px;
+        cursor: pointer;
+        height: 15px;
+        width: 15px;
+        margin: 0 2px;
+        background-color: #bbb;
+        border-radius: 50%;
+        display: inline-block;
+        transition: background-color 0.6s ease;
     }
-    #r5:checked ~ .s1 {
-        margin-left: -80%;
-        transition: 0.3s ease-in-out;
+
+    .active, .dot:hover {
+        background-color: #717171;
     }
-    .banki{
+
+    /* Fading animation */
+    .fade {
+        -webkit-animation-name: fade;
+        -webkit-animation-duration: 1.5s;
+        animation-name: fade;
+        animation-duration: 1.5s;
+    }
+
+    @-webkit-keyframes fade {
+        from {opacity: .4} 
+        to {opacity: 1}
+    }
+
+    @keyframes fade {
+        from {opacity: .4} 
+        to {opacity: 1}
+        }
+
+    /* On smaller screens, decrease text size */
+    @media only screen and (max-width: 300px) {
+        .prev, .next, {font-size: 11px}
+    }
+    .banki {
         width: 200px;
         position: absolute;
         top: 550px;
         left: 1250px;
+        z-index: 9999;
     }
 </style>
+
 <section class="home__slider">
     <div class="slides">
+        <div class="slide fade"><img src="/images/slider/1.png"></div>
+        <div class="slide fade"><img src="/images/slider/2.png"></div>
+        <div class="slide fade"><img src="/images/slider/3.png"></div>
+        <div class="slide fade"><img src="/images/slider/4.png"></div>
+        <div class="slide fade"><img src="/images/slider/5.png"></div>
 
-        <input type="radio" name = "r" id = "r1" checked>
-        <input type="radio" name = "r" id = "r2">
-        <input type="radio" name = "r" id = "r3">
-        <input type="radio" name = "r" id = "r4">
-        <input type="radio" name = "r" id = "r5">
-
-        <div class="slide s1"><img src="/images/slider/1.png"></div>
-        <div class="slide"><img src="/images/slider/2.png"></div>
-        <div class="slide"><img src="/images/slider/3.png"></div>
-        <div class="slide"><img src="/images/slider/4.png"></div>
-        <div class="slide"><img src="/images/slider/5.png"></div>
+        <a class="prev" onclick="plusSlides(-1)">❮</a>
+        <a class="next" onclick="plusSlides(1)">❯</a>
     </div>
-
-    <div class="navigation">
-        <label for="r1" class="bar"></label>
-        <label for="r2" class="bar"></label>
-        <label for="r3" class="bar"></label>
-        <label for="r4" class="bar"></label>
-        <label for="r5" class="bar"></label>
+    <div style="text-align:center">
+        <span class="dot" onclick="currentSlide(1)"></span> 
+        <span class="dot" onclick="currentSlide(2)"></span> 
+        <span class="dot" onclick="currentSlide(3)"></span>
+        <span class="dot" onclick="currentSlide(4)"></span> 
+        <span class="dot" onclick="currentSlide(5)"></span>  
     </div>
     <div class="banki">
         <img src="/images/slider/ban.png">
     </div>
 </section>
-    
+
+<script>
+    var slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+        var i;
+        var slides = document.getElementsByClassName("slide");
+        var dots = document.getElementsByClassName("dot");
+        if (n > slides.length) {slideIndex = 1}    
+        if (n < 1) {slideIndex = slides.length}
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";  
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex-1].style.display = "block";  
+        dots[slideIndex-1].className += " active";
+    }
+</script>
