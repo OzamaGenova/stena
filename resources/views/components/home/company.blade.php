@@ -32,6 +32,44 @@
     .award-img:after {
         content: 'год';
     }
+    .images_stena_about{
+        width: 360px;
+        height: 389px;
+        background-color: #E5E5E5;
+        img {
+            display: block;
+            margin: 0 auto;
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Стили для параграфа */
+        p {
+            text-align: center;
+            font-size: 18px;
+            margin: 20px 0;
+        }
+
+        /* Стили для ссылки */
+        a {
+            display: block;
+            text-align: center;
+            font-size: 20px;
+            margin: 20px 0;
+            text-decoration: none;
+            color: #000;
+        }
+
+        /* Стили для иконки */
+        a img {
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 10px;
+            width: 50px;
+            height: 50px;
+            background-color: #f00; /* Замените на цвет вашей иконки */
+        }
+    }
 </style>
 
 <section class="company-home width-80">
@@ -77,5 +115,15 @@
             <div class="award-img"><p class="font-xxl">2009</p></div>
             <p>Высококачественные лакокрасочные материалы «PAINTTECH» с содержанием наноразмерных компонентов</p>
         </div>
+    </div>
+    <div class="images_stena_about">
+        <img src="/images/photo_stena.jpg" alt="Изображение рабочих на стройке">
+        <p>
+            Посмотрите нашу богатую историю в фотографиях с 2003 года
+        </p>
+        <a href="path/to/photogallery.html">
+            <img src="/images/about_camera1.jpg" alt="Иконка фотогалереи">
+            Фотогалерея
+        </a>
     </div>
 </section>
