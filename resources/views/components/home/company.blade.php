@@ -116,14 +116,4 @@
             <p>Высококачественные лакокрасочные материалы «PAINTTECH» с содержанием наноразмерных компонентов</p>
         </div>
     </div>
-    <div class="images_stena_about">
-        <img src="/images/photo_stena.jpg" alt="Изображение рабочих на стройке">
-        <p>
-            Посмотрите нашу богатую историю в фотографиях с 2003 года
-        </p>
-        <a href="path/to/photogallery.html">
-            <img src="/images/about_camera1.jpg" alt="Иконка фотогалереи">
-            Фотогалерея
-        </a>
-    </div>
 </section>
