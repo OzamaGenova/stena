@@ -14,7 +14,7 @@
         justify-content: center;
     }
 </style>
-<section class="form-solutions width-80">
+<section class="form-solutions width-80" id="place_folder">
     <h2>Напишите, какое решение необходимо Вам</h2>
     <h3>и мы перезвоним Вам!</h3>
     <form>
