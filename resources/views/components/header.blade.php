@@ -51,7 +51,7 @@
                 <a href="/pages/contacts">●&nbsp;&nbsp;Контакты</a>
             </li>
             <li>
-                <a href="http://stena.armdl.tech" id="link">●&nbsp;&nbsp;Обратный&nbsp;звонок</a>
+                <a href="https://stena.armdl.tech" id="link">●&nbsp;&nbsp;Обратный&nbsp;звонок</a>
             </li>
         </ul>
 

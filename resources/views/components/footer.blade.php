@@ -76,7 +76,7 @@
                     <a href="/pages/contacts">●&nbsp;&nbsp;Контакты</a>
                 </li>
                 <li>
-                    <a href="http://stena.armdl.tech#place_folder">●&nbsp;&nbsp;Обратный&nbsp;звонок</a>
+                    <a href="http://stena.armdl.tech" id="link1">●&nbsp;&nbsp;Обратный&nbsp;звонок</a>
                 </li>
             </ul>
             <ul>
@@ -116,3 +116,11 @@
         </div>
     </nav>
 </footer>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  document.getElementById('link1').addEventListener('click', function(event) {
+    event.preventDefault();
+    document.getElementById('place').scrollIntoView();
+  });
+});
+</script>
