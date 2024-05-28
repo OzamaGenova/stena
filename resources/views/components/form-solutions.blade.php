@@ -14,10 +14,10 @@
         justify-content: center;
     }
 </style>
-<section class="form-solutions width-80" id="place_folder">
-    <h2>Напишите, какое решение необходимо Вам</h2>
+<section class="form-solutions width-80">
+    <h2 >Напишите, какое решение необходимо Вам</h2>
     <h3>и мы перезвоним Вам!</h3>
-    <form>
+    <form >
         <label style="grid-area: name">
             <input class="input" placeholder="Ваше имя">
         </label>

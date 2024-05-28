@@ -51,7 +51,7 @@
                 <a href="/pages/contacts">●&nbsp;&nbsp;Контакты</a>
             </li>
             <li>
-                <a href="#" id="openPageBtn">●&nbsp;&nbsp;Обратный&nbsp;звонок</a>
+                <a href="http://stena.armdl.tech" id="link">●&nbsp;&nbsp;Обратный&nbsp;звонок</a>
             </li>
         </ul>
 
@@ -71,19 +71,11 @@
         </ul>
     </nav>
 </header>
-
 <script>
-    const openPageBtn = document.getElementById('openPageBtn');
-
-    openPageBtn.addEventListener('click', () => {
-    // Открываем новую страницу
-    const url = 'http://stena.armdl.tech'; // Замените на нужный URL
-    window.open(url, '_blank');
-
-    // Перемещаемся на определенный элемент на новой странице
-    const targetElementId = 'place_holder'; // Замените на ID нужного элемента
-    setTimeout(() => {
-        window.location.hash = targetElementId;
-    }, 1000); // Задержка в 1 секунду для загрузки страницы
-    });
+document.addEventListener('DOMContentLoaded', function() {
+  document.getElementById('link').addEventListener('click', function(event) {
+    event.preventDefault();
+    document.getElementById('place').scrollIntoView();
+  });
+});
 </script>

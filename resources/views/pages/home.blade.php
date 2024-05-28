@@ -31,7 +31,7 @@
             "send send send"
         }
     </style>
-    <section class="home__city-form  width-80">
+    <section class="home__city-form  width-80" id="place">
         <h2 class="font-xl">Напишите в каком городе Вы хотите купить нашу продукцию</h2>
         <h3 class="font-l">и мы перезвоним вам</h3>
         <form>
