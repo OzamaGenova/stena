@@ -89,13 +89,6 @@
     @media only screen and (max-width: 300px) {
         .prev, .next, {font-size: 11px}
     }
-    .banki {
-        width: 200px;
-        position: absolute;
-        top: 550px;
-        left: 1250px;
-        z-index: 9999;
-    }
 </style>
 
 <section class="home__slider">
@@ -115,9 +108,6 @@
         <span class="dot" onclick="currentSlide(3)"></span>
         <span class="dot" onclick="currentSlide(4)"></span> 
         <span class="dot" onclick="currentSlide(5)"></span>  
-    </div>
-    <div class="banki">
-        <img src="/images/slider/ban.png">
     </div>
 </section>
 

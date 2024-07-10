@@ -37,7 +37,7 @@
         height: 100%;
         padding: 0 16px;
         border: none;
-        background-color: var(--color-lightgrey);
+        background-color: rgba(15,15,15);
     }
 </style>
 
