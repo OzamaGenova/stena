@@ -39,6 +39,13 @@
         border: none;
         background-color: rgba(15,15,15);
     }
+    .phone{
+        display: flex !important;
+        img{
+            width: 24px;
+            height: 24px;
+        }  
+    }
 </style>
 
 <header>
@@ -63,10 +70,10 @@
 
         <ul>
             <li class="mail">
-                <a href="mailto:info.stena18@mail.ru">✉info.stena18@mail.ru</a>
+                <a href="mailto:info.stena18@mail.ru"><img src="/images/send.png">info.stena18@mail.ru</a>
             </li>
             <li class="phone">
-                <a href="tel:+73412439700">☎+7 3412 439-700</a>
+                <a href="tel:+73412439700"><img src="/images/telephone.png">+7 3412 439-700</a>
             </li>
         </ul>
     </nav>
