@@ -1,6 +1,6 @@
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <<!-- Подключение jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!-- Подключение стилей Slick Carousel -->
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
@@ -16,7 +16,7 @@
             display: inline-block;
             vertical-align: top;
         }
-        .slider {
+        .slider{
             width: 100%;
         }
         .slider .card {
@@ -51,7 +51,7 @@
      <script>
         $(document).ready(function(){
             $('.slider').slick({
-                slidesToShow: 4,
+                slidesToShow: 3,
                 slidesToScroll: 1,
                 autoplay: true,
                 autoplaySpeed: 3000,
@@ -59,13 +59,13 @@
                     {
                         breakpoint: 768,
                         settings: {
-                            slidesToShow: 3,
+                            slidesToShow: 2,
                         }
                     },
                     {
                         breakpoint: 480,
                         settings: {
-                            slidesToShow: 2,
+                            slidesToShow: 1,
                         }
                     }
                 ]

@@ -1,4 +1,11 @@
-<style>
+<head>
+    <!-- Подключение стилей Slick Carousel -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
+
+    <!-- Подключение скриптов Slick Carousel -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <style>
     .card-list-product {
         grid-template-columns: repeat(auto-fit, minmax(384px, 1fr));
         padding-bottom: 240px;
@@ -47,7 +54,9 @@
         display: block;
     }
 </style>
-<section>
+</head>
+<body>
+    <section>
     <h2 class="font-xl">Наша продукция</h2>
 
     <section class="card-grid card-list-product">
@@ -84,3 +93,27 @@
         </div>
     </section>
 </section>
+<script>
+        $(document).ready(function(){
+            $('.slider').slick({
+                slidesToShow: 4,
+                autoplay: true,
+                autoplaySpeed: 3000,
+                responsive: [
+                    {
+                        breakpoint: 768,
+                        settings: {
+                            slidesToShow: 2,
+                        }
+                    },
+                    {
+                        breakpoint: 480,
+                        settings: {
+                            slidesToShow: 1,
+                        }
+                    }
+                ]
+            });
+        });
+    </script>
+</body>
