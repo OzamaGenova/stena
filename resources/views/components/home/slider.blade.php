@@ -93,11 +93,31 @@
 
 <section class="home__slider">
     <div class="slides">
-        <div class="slide fade"><img src="/images/slider/1.png"></div>
-        <div class="slide fade"><img src="/images/slider/2.png"></div>
-        <div class="slide fade"><img src="/images/slider/3.png"></div>
-        <div class="slide fade"><img src="/images/slider/4.png"></div>
-        <div class="slide fade"><img src="/images/slider/5.png"></div>
+        <div class="slide fade">
+            <a href="/">
+                <img src="/images/slider/1.png">
+            </a>
+        </div>
+        <div class="slide fade">
+            <a href="/">
+                <img src="/images/slider/2.png">
+            </a>
+        </div>
+        <div class="slide fade">
+            <a href="/">
+                <img src="/images/slider/3.png">
+            </a>
+        </div>
+        <div class="slide fade">
+            <a href="/">
+                <img src="/images/slider/4.png">
+            </a>
+        </div>
+        <div class="slide fade">
+            <a href="/">
+                <img src="/images/slider/5.png">
+            </a>
+        </div>
 
         <a class="prev" onclick="plusSlides(-1)">❮</a>
         <a class="next" onclick="plusSlides(1)">❯</a>

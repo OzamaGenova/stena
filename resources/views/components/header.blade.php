@@ -38,6 +38,7 @@
         padding: 0 16px;
         border: none;
         background-color: rgba(15,15,15);
+        color: rgb(255,255,255);
     }
     .phone{
         display: flex !important;
