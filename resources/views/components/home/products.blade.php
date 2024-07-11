@@ -9,6 +9,14 @@
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
     <!-- Стили для слайдера -->
     <style>
+        .home__products .card-list{
+            display:flex;
+            overflow: hidden;
+        }
+        .home__products .card {
+            display: inline-block;
+            vertical-align: top;
+        }
         .card-list-product {
             grid-template-columns: repeat(auto-fit, minmax(384px, 1fr));
             padding-bottom: 240px;
@@ -51,12 +59,21 @@
         .card-product-wrapper:hover .card-product--details {
             display: block;
         }
+        .slider {
+            width: 100%;
+        }
+        .slider .card {
+            margin: 0 10px;
+        }
+        .slider img {
+            width: 100%;
+            height: auto;
+        }
     </style>
 </head>
 <body>
-    <section>
+    <section class="home__products wight-80">
         <h2 class="font-xl">Наша продукция</h2>
-
         <div class="slider">
             @foreach($products as $record)
                 <section class="card-product card-product--short">
