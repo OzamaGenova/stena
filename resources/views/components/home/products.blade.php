@@ -61,6 +61,8 @@
         }
         .slider {
             width: 100%;
+            display: flex;
+            overflow: hidden;
         }
         .slider .card {
             margin: 0 10px;

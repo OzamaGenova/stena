@@ -1,10 +1,12 @@
+<!DOCTYPE html>
+<html lang="ru">
 <head>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Подключение стилей Slick Carousel -->
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
-    <!-- Подключение скриптов Slick Carousel -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <!-- Стили для слайдера -->
     <style>
         .home__solutions .card-list {
             display: flex;
@@ -29,7 +31,7 @@
 <body>
     <section class="home__solutions width-80">
         <h2 class="font-xl">Наши технологии и решения</h2>
-        <div class="card-list slick-carousel" data-slides-to-show="4" data-slides-to-scroll="1">
+        <div class="card-list slider" data-slides-to-show="4" data-slides-to-scroll="1">
             @foreach($solutions as $record)
                 <section class="card card--medium">
                     <a href="{{ route('solutions.show', ['id' => $record->id]) }}">
@@ -41,34 +43,38 @@
                 </section>
             @endforeach
         </div>
+        <div class="slick-prev"></div>
+        <div class="slick-next"></div>
     </section>
+
+    <!-- Скрипт для инициализации слайдера -->
     <script>
-    $(document).ready(function(){
-        $('.slick-carousel').slick({
-            slidesToShow: 4,
-            slidesToScroll: 1,
-            autoplay: true,
-            autoplaySpeed: 3000,
-            prevArrow: '.slick-prev',
-            nextArrow: '.slick-next',
-            responsive: [
-                {
-                    breakpoint: 768,
-                    settings: {
-                        slidesToShow: 2,
-                        slidesToScroll: 1
+        $(document).ready(function(){
+            $('.slider').slick({
+                slidesToShow: 4,
+                slidesToScroll: 1,
+                autoplay: true,
+                autoplaySpeed: 3000,
+                prevArrow: '.slick-prev',
+                nextArrow: '.slick-next',
+                responsive: [
+                    {
+                        breakpoint: 768,
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 1
+                        }
+                    },
+                    {
+                        breakpoint: 480,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1
+                        }
                     }
-                },
-                {
-                    breakpoint: 480,
-                    settings: {
-                        slidesToShow: 1,
-                        slidesToScroll: 1
-                    }
-                }
-            ]
+                ]
+            });
         });
-    });
     </script>
 </body>
-
+</html>
