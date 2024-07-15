@@ -3,14 +3,14 @@
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
     <!-- Подключение скриптов Slick Carousel -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
     <!-- Стили для слайдера -->
     <style>
-        .home__solutions .card-list{
-            display:flex;
-            overflow:hidden;
+        .home__projects .card-list {
+            display: flex;
+            overflow: hidden;
         }
-        .home__solutions .card {
+        .home__projects .card {
             display: inline-block;
             vertical-align: top;
         }
@@ -27,11 +27,11 @@
     </style>
 </head>
 <body>
-    <section class="home__solutions width-80">
+<section class="home__projects width-80">
         <h2 class="font-xl">Наши технологии и решения</h2>
-        <div class="slider">
+        <div class="card-list">
             @foreach($solutions as $record)
-                <section class="card card--small">
+                <section class="card card--medium">
                     <a href="{{ route('solutions.show', ['id' => $record->id]) }}">
                         <img class="card__img"
                              src="{{ Storage::disk(config('admin.upload.disk'))->url($record->img[0] ?? '') }}"/>
@@ -45,11 +45,12 @@
             <a class="button" href="{{ route('solutions.index') }}">Посмотрите все решения</a>
         </div>
     </section>
+
      <!-- Скрипт для инициализации слайдера -->
      <script>
         $(document).ready(function(){
-            $('.slider').slick({
-                slidesToShow: 4,
+            $('.card-list').slick({
+                slidesToShow: 3,
                 slidesToScroll: 1,
                 autoplay: true,
                 autoplaySpeed: 3000,
