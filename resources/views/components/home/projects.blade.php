@@ -1,10 +1,4 @@
 <head>
-    <!-- Подключение стилей Slick Carousel -->
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
-    <!-- Подключение скриптов Slick Carousel -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
-    <!-- Стили для слайдера -->
     <style>
         .home__projects .card-list {
             display: flex;
@@ -43,7 +37,7 @@
             @endforeach
         </div>
         <div class="card__button-block">
-            <a class="button" href="{{ route('products.index') }}">Посмотрите все проекты</a>
+            <a class="button" href="{{ route('projects.index') }}">Посмотрите все проекты</a>
         </div>
     </section>
 
