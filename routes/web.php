@@ -26,7 +26,12 @@ Route::get('/', function () {
 
 Route::get('pages/{slug}', function ($slug) {
     $record = Page::query()->where('slug', '=', $slug)->firstOrFail();
-    return view('default', ['banner1' => 'images/company.png', 'banner2' => 'images/contacs.png','content' => $record['content']]);
+
+    if ($slug === 'contacts')
+        $banner = '/images/contacs.png';
+    else $banner = '/images/company.png';
+
+    return view('default', ['banner' => $banner , 'content' => $record['content']]);
 });
 
 Route::get('/products', function () {

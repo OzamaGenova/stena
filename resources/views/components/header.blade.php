@@ -38,8 +38,8 @@
             height: 100%;
             padding: 0 16px;
             border: none;
-            background-color: rgba(15,15,15);
-            color: rgb(255,255,255);
+            background-color: #333333;
+            color: #FFFFFF;
         }
         .phone{
             display: flex !important;
@@ -58,12 +58,14 @@
                 <li>
                     <a href="/pages/about">●&nbsp;О&nbsp;компании</a>
                 </li>
+
+                <li>
+                    <a href="/">●&nbsp;&nbsp;Главная&nbsp;</a>
+                </li>
                 <li>
                     <a href="/pages/contacts">●&nbsp;&nbsp;Контакты</a>
                 </li>
-                <li>
-                    <a href="/pages/default" id="link">●&nbsp;&nbsp;Обратный&nbsp;звонок</a>
-                </li>
+                
             </ul>
 
             <form class="header__search">

@@ -1,20 +1,25 @@
+<style>
+    .images{
+        width: 100%;
+        img{
+            width: 100%;
+        }
+    }
+</style>
 @extends('layouts.main')
 
 @section('banner')
-    @if(isset($banner1))
-        <div>
-            <img src="{{ $banner1 }}" alt="banner1"/>
-        </div>
-    @elseif(isset($banner2))
-        <div>
-            <img src="{{ $banner2 }}" alt="banner2"/>
+    @if(isset($banner))
+        <div class="images">
+            <a href="/">
+                <img src="{{ $banner }}" alt="banner1"/>
+            </a>
         </div>
     @else
         @component('components.home.slider')
         @endcomponent
     @endif
 @endsection
-
 
 @section('main')
     {!! $content !!}

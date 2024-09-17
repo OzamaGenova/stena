@@ -20,6 +20,7 @@
     .nav-main a {
         display: block;
         padding: 24px;
+        font-size: 17px;
     }
 
     .nav-main a:hover, .nav-main li.active a {
