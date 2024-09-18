@@ -110,3 +110,7 @@ Route::get('/events/{id}', function ($id) {
 Route::get('/stm', function () {
     return view('pages.stm');
 })->name('stm');
+
+Route::get('/labotary', function () {
+    return view('pages.labotary');
+})->name('labotary');
