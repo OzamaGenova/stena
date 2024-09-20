@@ -52,9 +52,6 @@
         </div>
     </div>
 
-    @component('components.home.partners')
-    @endcomponent
-
     @component('components.promotion')
     @endcomponent
 
@@ -62,6 +59,9 @@
     @endcomponent
 
     @component('components.home.projects')
+    @endcomponent
+    
+    @component('components.home.partners')
     @endcomponent
 
 @endsection

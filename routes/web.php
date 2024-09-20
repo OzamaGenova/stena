@@ -114,3 +114,7 @@ Route::get('/stm', function () {
 Route::get('/labotary', function () {
     return view('pages.labotary');
 })->name('labotary');
+
+Route::get('/photo', function () {
+    return view('pages.photo');
+})->name('photo');

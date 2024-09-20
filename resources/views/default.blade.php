@@ -12,7 +12,7 @@
     @if(isset($banner))
         <div class="images">
             <a href="/">
-                <img src="{{ $banner }}" alt="banner1"/>
+                <img src="{{ $banner }}" alt="banner_for_this_page"/>
             </a>
         </div>
     @else
