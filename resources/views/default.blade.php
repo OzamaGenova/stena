@@ -1,9 +1,9 @@
 <style>
+    img{
+        vertical-alight:middle;
+    }
     .images{
         width: 100%;
-        img{
-            width: 100%;
-        }
     }
 </style>
 @extends('layouts.main')

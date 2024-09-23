@@ -42,11 +42,7 @@
             color: #FFFFFF;
         }
         .phone{
-            display: flex !important;
-            img{
-                width: 24px;
-                height: 24px;
-            }  
+            display: flex !important; 
         }
     </style>
 </head>
